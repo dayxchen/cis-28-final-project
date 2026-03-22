@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}Staff desk · De Anza LIS{% endblock %}
+{% block body %}
+<p class="lede">Full transaction set from the functional spec. Data is seeded from <code>data/*.csv</code>; each browser session starts fresh.</p>
+
+<form class="inline danger-zone" method="post" action="{{ url_for('admin_logout') }}">
+  <button type="submit" class="btn secondary">Staff sign out</button>
+</form>
+<form class="inline danger-zone" method="post" action="{{ url_for('reset_session') }}" onsubmit="return confirm('Reload seed data and discard this session?');">
+  <button type="submit" class="btn secondary">Reset session (reload CSV)</button>
+</form>
+
+<section class="grid-forms">
+  <article class="card">
+    <h2>1 · Add / remove copy</h2>
+    <form method="post" action="{{ url_for('tx_add_copy') }}" class="stack">
+      <label>ISBN <input name="isbn" placeholder="978-1-4028-1000" required></label>
+      <button type="submit" class="btn">Add copy</button>
+    </form>
+    <form method="post" action="{{ url_for('tx_remove_copy') }}" class="stack mt">
+      <label>Copy barcode <input name="barcode" placeholder="COPY-000001" required></label>
+      <label>Reason
+        <select name="reason" required>
+          <option value="LOST">LOST</option>
+          <option value="DAMAGED">DAMAGED</option>
+        </select>
+      </label>
+      <button type="submit" class="btn secondary">Remove copy</button>
+    </form>
+  </article>
+
+  <article class="card">
+    <h2>2 · Card & fines</h2>
+    <form method="post" action="{{ url_for('tx_issue_card') }}" class="stack">
+      <label>Name <input name="name" required></label>
+      <label>Phone <input name="phone" placeholder="408-555-0100" required></label>
+      <label>Type
+        <select name="borrower_type" required>
+          <option value="Student">Student</option>
+          <option value="Teacher">Teacher</option>
+        </select>
+      </label>
+      <label>Years valid <input name="years_valid" type="number" value="1" min="1" max="5"></label>
+      <button type="submit" class="btn">Issue library card</button>
+    </form>
+    <form method="post" action="{{ url_for('tx_pay_fines') }}" class="stack mt">
+      <label>Card barcode <input name="card_barcode" placeholder="CARD-00001" required></label>
+      <label>Payment ($) <input name="amount" type="number" step="0.01" min="0.01" required></label>
+      <button type="submit" class="btn secondary">Pay fines</button>
+    </form>
+  </article>
+
+  <article class="card">
+    <h2>3 · Checkout / return (any patron)</h2>
+    <form method="post" action="{{ url_for('tx_checkout') }}" class="stack">
+      <label>Card barcode <input name="card_barcode" required></label>
+      <label>Copy barcode <input name="copy_barcode" required></label>
+      <button type="submit" class="btn">Check out</button>
+    </form>
+    <form method="post" action="{{ url_for('tx_return') }}" class="stack mt">
+      <label>Copy barcode <input name="copy_barcode" required></label>
+      <button type="submit" class="btn secondary">Return copy</button>
+    </form>
+  </article>
+
+  <article class="card">
+    <h2>4 · New day</h2>
+    <p class="hint">Advances simulation date; marks overdue; accrues fines; processes on-hold timers.</p>
+    <form method="post" action="{{ url_for('tx_new_day') }}">
+      <button type="submit" class="btn">Run new day</button>
+    </form>
+  </article>
+
+  <article class="card">
+    <h2>5 · Reservations (any patron)</h2>
+    <form method="post" action="{{ url_for('tx_reserve') }}" class="stack">
+      <label>Card barcode <input name="card_barcode" required></label>
+      <label>ISBN <input name="isbn" required></label>
+      <button type="submit" class="btn">Place reservation</button>
+    </form>
+    <p class="hint">Claiming a hold: use <strong>Check out</strong> with the patron’s card and the on-hold copy barcode.</p>
+  </article>
+
+  <article class="card">
+    <h2>6 · Delete borrower</h2>
+    <p class="hint">Only if no checkouts and no active hold on a copy.</p>
+    <form method="post" action="{{ url_for('tx_delete_borrower') }}" class="stack">
+      <label>Borrower ID <input name="borrower_id" placeholder="B-042" required></label>
+      <button type="submit" class="btn danger">Delete borrower</button>
+    </form>
+  </article>
+</section>
+
+<section class="card queries-shortcut">
+  <h2>Reports & queries</h2>
+  <p>Open reports and lookup tools.</p>
+  <p class="btn-row">
+    <a class="btn" href="{{ url_for('reports_overdue') }}">Overdue report</a>
+    <a class="btn" href="{{ url_for('reports_inventory') }}">Inventory report</a>
+    <a class="btn" href="{{ url_for('queries_hub') }}">Queries hub</a>
+    <a class="btn secondary" href="{{ url_for('query_borrower') }}">Borrower by card</a>
+    <a class="btn secondary" href="{{ url_for('query_copy') }}">Copy by barcode</a>
+    <a class="btn secondary" href="{{ url_for('query_book') }}">Book by ISBN</a>
+  </p>
+</section>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Inventory report · De Anza LIS{% endblock %}
+{% block body %}
+<h1>Report: Inventory</h1>
+<p class="lede">{{ rows|length }} titles in catalog.</p>
+{% for book in rows %}
+  <article class="card report-block">
+    <header class="book-head">
+      <h2>{{ book.title }}</h2>
+      <p class="meta">{{ book.author }} · {{ book.book_type }} · ed. {{ book.edition }} · <code>{{ book.isbn }}</code></p>
+      <p class="meta">Catalog # {{ book.catalog_number }}</p>
+    </header>
+    <h3>Reservations</h3>
+    {% if book.reservers %}
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Name</th><th>Phone</th><th>Date reserved</th></tr></thead>
+          <tbody>
+            {% for r in book.reservers %}
+            <tr><td>{{ r.name }}</td><td>{{ r.phone }}</td><td>{{ r.date_reserved }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="hint">None</p>
+    {% endif %}
+    <h3>Copies</h3>
+    <div class="table-wrap wide">
+      <table>
+        <thead>
+          <tr><th>Barcode</th><th>Status</th><th>Details</th></tr>
+        </thead>
+        <tbody>
+          {% for c in book.copies %}
+          <tr>
+            <td><code>{{ c.barcode }}</code></td>
+            <td><span class="status-pill">{{ c.status }}</span></td>
+            <td class="small">
+              {% if c.status in ['CHECKED_OUT', 'OVERDUE'] %}
+                Out: {{ c.date_checked_out }} → due {{ c.date_due_back }} · owed ${{ '%.2f'|format(c.amount_owed) }}
+                · {{ c.borrower_name }} ({{ c.borrower_type }}) <code>{{ c.card_barcode }}</code>
+              {% elif c.status == 'ON_HOLD' %}
+                Hold for {{ c.hold_for }} · {{ c.hold_days_remaining }} day(s) left
+              {% else %}
+                —
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </article>
+{% endfor %}
+{% endblock %}

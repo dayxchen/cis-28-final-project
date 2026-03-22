@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Query: Copy · De Anza LIS{% endblock %}
+{% block body %}
+<h1>Query: Copy by barcode</h1>
+<form method="get" action="{{ url_for('query_copy') }}" class="inline-form">
+  <label>Copy barcode <input name="barcode" value="{{ barcode }}" placeholder="COPY-000001"></label>
+  <button type="submit" class="btn">Look up</button>
+</form>
+{% if barcode and not data %}
+  <p class="flash err">No copy found for <code>{{ barcode }}</code>.</p>
+{% endif %}
+{% if data %}
+  <article class="card">
+    <h2><code>{{ data.barcode }}</code> <span class="status-pill">{{ data.status }}</span></h2>
+    <p class="meta"><em>{{ data.title }}</em> — {{ data.author }} · {{ data.book_type }}{% if data.is_reference %} · reference{% endif %}</p>
+    <p class="meta">ISBN <code>{{ data.isbn }}</code> · {{ data.publisher }} · ed. {{ data.edition }}</p>
+    {% if data.status in ['CHECKED_OUT', 'OVERDUE'] %}
+      <p class="meta">Checked out {{ data.date_checked_out }} · due {{ data.date_due_back }} · owed ${{ '%.2f'|format(data.amount_owed) }}</p>
+      <p class="meta">{{ data.borrower_name }} ({{ data.borrower_type }}) · card <code>{{ data.card_barcode }}</code></p>
+    {% elif data.status == 'ON_HOLD' %}
+      <p class="meta">Hold for {{ data.hold_for_name }} (<code>{{ data.hold_borrower_id }}</code>) · {{ data.hold_days_remaining }} day(s) remaining</p>
+    {% endif %}
+  </article>
+{% endif %}
+<p class="mt"><a href="{{ url_for('query_borrower') }}">Query borrower</a> · <a href="{{ url_for('query_book') }}">Query book</a></p>
+{% endblock %}

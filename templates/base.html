@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}De Anza LIS{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="{{ url_for('home') }}">De Anza Library Inventory</a>
+      <nav class="nav">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('borrower_portal') }}">Patron</a>
+        <a href="{{ url_for('admin_desk') }}">Staff</a>
+        <a href="{{ url_for('reports_overdue') }}">Overdue</a>
+        <a href="{{ url_for('reports_inventory') }}">Inventory</a>
+        <a href="{{ url_for('queries_hub') }}">Queries</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flashes">
+          {% for cat, msg in messages %}
+            <li class="flash {{ cat }}">{{ msg }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% block body %}{% endblock %}
+  </main>
+  <footer class="site-footer wrap">
+    <p>Simulation date: <strong>{% if sim_date is defined %}{{ sim_date }}{% else %}—{% endif %}</strong>. Changes apply only to this browser session.</p>
+    <p class="footer-credit">Made with Claude</p>
+  </footer>
+</body>
+</html>

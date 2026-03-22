@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Query: Book · De Anza LIS{% endblock %}
+{% block body %}
+<h1>Query: Book by ISBN</h1>
+<form method="get" action="{{ url_for('query_book') }}" class="inline-form">
+  <label>ISBN <input name="isbn" value="{{ isbn }}" placeholder="978-1-4028-1000"></label>
+  <button type="submit" class="btn">Look up</button>
+</form>
+{% if isbn and not data %}
+  <p class="flash err">No book found for <code>{{ isbn }}</code>.</p>
+{% endif %}
+{% if data %}
+  <article class="card">
+    <h2>{{ data.title }}</h2>
+    <p class="meta">{{ data.author }} · {{ data.publisher }} · ed. {{ data.edition }}</p>
+    <p class="meta">{{ data.book_type }} · catalog <code>{{ data.catalog_number or '—' }}</code>
+      {% if data.is_reference %}· reference{% endif %} · {% if data.is_hardcover %}hardcover{% else %}paperback{% endif %}</p>
+    <p class="meta">ISBN <code>{{ data.isbn }}</code> · {{ data.reservation_count }} reservation(s)</p>
+    <h3>Copies</h3>
+    <div class="table-wrap wide">
+      <table>
+        <thead><tr><th>Barcode</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+          {% for c in data.copies %}
+          <tr>
+            <td><code>{{ c.barcode }}</code></td>
+            <td>{{ c.status }}</td>
+            <td class="small">
+              {% if c.status in ['CHECKED_OUT', 'OVERDUE'] %}
+                {{ c.borrower_name }} · due {{ c.date_due_back }} · ${{ '%.2f'|format(c.amount_owed) }}
+              {% elif c.status == 'ON_HOLD' %}
+                Hold: {{ c.hold_for_name }} · {{ c.hold_days_remaining }}d
+              {% else %}—{% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </article>
+{% endif %}
+<p class="mt"><a href="{{ url_for('query_borrower') }}">Query borrower</a> · <a href="{{ url_for('query_copy') }}">Query copy</a></p>
+{% endblock %}

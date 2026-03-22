@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Welcome · De Anza LIS{% endblock %}
+{% block body %}
+<h1>Library inventory system</h1>
+<p class="lede">Choose how you are using the app. Patrons manage their own checkouts and holds; staff have full catalog and desk tools.</p>
+
+<section class="portal-pick grid-forms">
+  <article class="card portal-card">
+    <h2>Patron</h2>
+    <p class="hint">Sign in with your library card barcode to see your account, check out or return copies, and place reservations.</p>
+    <a class="btn" href="{{ url_for('borrower_portal') }}">Patron portal</a>
+  </article>
+  <article class="card portal-card">
+    <h2>Staff</h2>
+    <p class="hint">Librarian and admin tools: copies, cards, fines, all transactions, reports, and queries.</p>
+    <a class="btn secondary" href="{{ url_for('admin_desk') }}">Staff desk</a>
+  </article>
+</section>
+
+<section class="card queries-shortcut">
+  <h2>Quick links</h2>
+  <p class="hint">Anyone can open reports and ISBN lookups; patron PII in queries is intended for staff use.</p>
+  <p class="btn-row">
+    <a class="btn secondary" href="{{ url_for('reports_overdue') }}">Overdue report</a>
+    <a class="btn secondary" href="{{ url_for('reports_inventory') }}">Inventory report</a>
+    <a class="btn secondary" href="{{ url_for('queries_hub') }}">Queries</a>
+    <a class="btn secondary" href="{{ url_for('query_book') }}">Look up book (ISBN)</a>
+  </p>
+</section>
+{% endblock %}

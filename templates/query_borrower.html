@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Query: Borrower · De Anza LIS{% endblock %}
+{% block body %}
+<h1>Query: Borrower by card</h1>
+<form method="get" action="{{ url_for('query_borrower') }}" class="inline-form">
+  <label>Card barcode <input name="card" value="{{ card }}" placeholder="CARD-00001"></label>
+  <button type="submit" class="btn">Look up</button>
+</form>
+{% if card and not data %}
+  <p class="flash err">No borrower found for <code>{{ card }}</code>.</p>
+{% endif %}
+{% if data %}
+  <article class="card">
+    <h2>{{ data.name }} <span class="tag">{{ data.borrower_type }}</span></h2>
+    <p class="meta"><code>{{ data.borrower_id }}</code> · {{ data.phone }}</p>
+    <p class="meta">Card <code>{{ data.card_barcode }}</code> · expires {{ data.card_expiration }}
+      {% if data.card_expired %}<strong class="warn">(expired)</strong>{% endif %}</p>
+    <p class="meta">Fine balance: <strong>${{ '%.2f'|format(data.fine_balance) }}</strong></p>
+    <h3>Checked out</h3>
+    {% if data.checked_out %}
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Copy</th><th>Status</th><th>Title</th><th>Out</th><th>Due</th><th>Owed</th></tr></thead>
+          <tbody>
+            {% for c in data.checked_out %}
+            <tr>
+              <td><code>{{ c.barcode }}</code></td>
+              <td>{{ c.status }}</td>
+              <td>{{ c.title }}</td>
+              <td>{{ c.date_checked_out }}</td>
+              <td>{{ c.date_due_back }}</td>
+              <td>${{ '%.2f'|format(c.amount_owed) }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="hint">None</p>
+    {% endif %}
+    <h3>Reservations</h3>
+    {% if data.reservations %}
+      <ul class="plain-list">
+        {% for r in data.reservations %}
+          <li><code>{{ r.reservation_id }}</code> · <em>{{ r.title }}</em> — {{ r.author }} · reserved {{ r.date_reserved }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="hint">None</p>
+    {% endif %}
+  </article>
+{% endif %}
+<p class="mt"><a href="{{ url_for('query_copy') }}">Query copy</a> · <a href="{{ url_for('query_book') }}">Query book</a></p>
+{% endblock %}

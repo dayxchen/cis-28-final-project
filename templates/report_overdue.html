@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Overdue report · De Anza LIS{% endblock %}
+{% block body %}
+<h1>Report: Overdue</h1>
+{% if not rows %}
+  <p class="lede">No borrowers with overdue material.</p>
+{% else %}
+  {% for row in rows %}
+    <article class="card report-block">
+      <h2>{{ row.borrower_name }} <span class="tag">{{ row.borrower_type }}</span></h2>
+      <p class="meta">Card: <code>{{ row.card_barcode }}</code></p>
+      <h3>Overdue copies</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Title</th><th>Author</th><th>Barcode</th><th>Checked out</th><th>Owed</th></tr>
+          </thead>
+          <tbody>
+            {% for c in row.overdue_copies %}
+            <tr>
+              <td>{{ c.title }}</td>
+              <td>{{ c.author }}</td>
+              <td><code>{{ c.barcode }}</code></td>
+              <td>{{ c.date_checked_out }}</td>
+              <td>${{ '%.2f'|format(c.amount_owed) }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <h3>Reserved books (same borrower)</h3>
+      {% if row.reserved_books %}
+        <ul class="plain-list">
+          {% for b in row.reserved_books %}
+            <li><em>{{ b.title }}</em> — {{ b.author }} · <code>{{ b.isbn }}</code></li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="hint">None</p>
+      {% endif %}
+    </article>
+  {% endfor %}
+{% endif %}
+{% endblock %}

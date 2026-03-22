@@ -1,0 +1,501 @@
+isbn,title,publisher,author,edition,book_type,catalog_number,is_reference,is_hardcover
+978-1-4028-1000,"Calculus — A Concise Introduction, Vol. 1",Publisher 39,Reid Vega,2,NonFiction,235.91O,false,false
+978-1-4028-1001,"Organic Chemistry — A Concise Introduction, Vol. 2",Publisher 11,Chen Ibrahim,5,NonFiction,292.35A,false,true
+978-1-4028-1002,"U.S. History — A Concise Introduction, Vol. 3",Publisher 21,Rosa Vaughn,2,NonFiction,618.76W,false,false
+978-1-4028-1003,The Silent Garden,Publisher 40,Dina Liu,6,Fiction,,false,true
+978-1-4028-1004,"World Mythology — A Concise Introduction, Vol. 4",Publisher 19,Ben Khan,1,NonFiction,632.78I,false,false
+978-1-4028-1005,Broken Gardens,Publisher 11,Julian Lopez,3,Fiction,,false,true
+978-1-4028-1006,"Data Structures — A Concise Introduction, Vol. 5",Publisher 32,Julian Sato,2,NonFiction,486.42M,false,false
+978-1-4028-1007,The Last Garden,Publisher 12,Vera Chang,2,Fiction,,false,true
+978-1-4028-1008,Golden Gardens,Publisher 35,Tariq Mensah,1,Fiction,,false,true
+978-1-4028-1009,"Cell Biology — A Concise Introduction, Vol. 6",Publisher 23,Clara Yilmaz,1,NonFiction,611.29X,false,true
+978-1-4028-1010,"Macroeconomics — A Concise Introduction, Vol. 7",Publisher 37,Nolan Murphy,2,NonFiction,787.63H,false,true
+978-1-4028-1011,The Winter Garden,Publisher 30,Vera Petrov,2,Fiction,,false,false
+978-1-4028-1012,"Environmental Science — A Concise Introduction, Vol. 8",Publisher 36,Rowan Adams,4,NonFiction,240.96Q,false,true
+978-1-4028-1013,"Linear Algebra — A Concise Introduction, Vol. 9",Publisher 24,Greta Hansen,1,NonFiction,324.61G,false,true
+978-1-4028-1014,Paper Gardens,Publisher 8,Quinn Brown,5,Fiction,,false,true
+978-1-4028-1015,"Psychology — A Concise Introduction, Vol. 10",Publisher 13,Bruno Liu,5,NonFiction,189.67Q,false,true
+978-1-4028-1016,"Sociology — A Concise Introduction, Vol. 11",Publisher 26,Sofia Brown,4,NonFiction,967.99C,false,true
+978-1-4028-1017,The Glass Garden,Publisher 22,Diego Kowalski,5,Fiction,,false,false
+978-1-4028-1018,"Art History — A Concise Introduction, Vol. 12",Publisher 22,Alma Lindstrom,6,NonFiction,890.60J,true,true
+978-1-4028-1019,"Music Theory — A Concise Introduction, Vol. 13",Publisher 6,Clara Yilmaz,2,NonFiction,163.27J,false,true
+978-1-4028-1020,Hidden Gardens,Publisher 13,Noor Murphy,6,Fiction,,false,false
+978-1-4028-1021,The Blue Garden,Publisher 31,Kwame Harris,4,Fiction,,false,true
+978-1-4028-1022,"Statistics — A Concise Introduction, Vol. 14",Publisher 27,Amara Kelly,1,NonFiction,838.44P,false,false
+978-1-4028-1023,"Ethics — A Concise Introduction, Vol. 15",Publisher 3,Maria Adams,6,NonFiction,689.34A,false,true
+978-1-4028-1024,"Physics — A Concise Introduction, Vol. 16",Publisher 5,Felix Ortega,5,NonFiction,306.82F,true,true
+978-1-4028-1025,Wild Gardens,Publisher 26,Noah Reyes,6,Fiction,,false,true
+978-1-4028-1026,"Astronomy — A Concise Introduction, Vol. 17",Publisher 25,Adrian Torres,3,NonFiction,309.59B,false,true
+978-1-4028-1027,"Linguistics — A Concise Introduction, Vol. 18",Publisher 21,Mina Ito,3,NonFiction,692.57Q,false,true
+978-1-4028-1028,"Anthropology — A Concise Introduction, Vol. 19",Publisher 36,Clara Kowalski,6,NonFiction,903.38V,false,true
+978-1-4028-1029,"Political Science — A Concise Introduction, Vol. 20",Publisher 22,Freya Martin,2,NonFiction,480.86P,false,true
+978-1-4028-1030,"Neuroscience — A Concise Introduction, Vol. 21",Publisher 34,Hugo Owens,5,NonFiction,227.73J,true,false
+978-1-4028-1031,The Forgotten Garden,Publisher 39,James Costa,4,Fiction,,false,true
+978-1-4028-1032,"Geology — A Concise Introduction, Vol. 22",Publisher 5,Naomi Jackson,6,NonFiction,400.52V,false,false
+978-1-4028-1033,"Ethnography — A Concise Introduction, Vol. 23",Publisher 12,Raj Green,3,NonFiction,736.58C,false,true
+978-1-4028-1034,"Research Methods — A Concise Introduction, Vol. 24",Publisher 25,Isaac Singh,5,NonFiction,385.37D,false,true
+978-1-4028-1035,"Public Health — A Concise Introduction, Vol. 25",Publisher 40,Caleb Zhou,3,NonFiction,358.85E,false,true
+978-1-4028-1036,Electric Gardens,Publisher 20,Omar Quintero,5,Fiction,,false,true
+978-1-4028-1037,The Midnight Garden,Publisher 32,Axel Harris,4,Fiction,,false,true
+978-1-4028-1038,Stone Gardens,Publisher 39,Sana Walsh,1,Fiction,,false,false
+978-1-4028-1039,The River Garden,Publisher 24,Tariq Mensah,1,Fiction,,false,true
+978-1-4028-1040,Crimson Gardens,Publisher 26,Kira Brooks,6,Fiction,,false,true
+978-1-4028-1041,The Distant Garden,Publisher 20,Bianca Adams,6,Fiction,,false,true
+978-1-4028-1042,"Urban Planning — A Concise Introduction, Vol. 26",Publisher 9,Felipe Lopez,3,NonFiction,897.61I,true,true
+978-1-4028-1043,"Climate Policy — A Concise Introduction, Vol. 27",Publisher 8,Yara Kim,5,NonFiction,963.14K,false,true
+978-1-4028-1044,Small Gardens,Publisher 4,Fatima Brooks,3,Fiction,,false,true
+978-1-4028-1045,The Bright Garden,Publisher 17,Ezra Novak,6,Fiction,,false,false
+978-1-4028-1046,"Machine Learning — A Concise Introduction, Vol. 28",Publisher 36,Ezra Novak,2,NonFiction,384.99C,false,true
+978-1-4028-1047,"Human Anatomy — A Concise Introduction, Vol. 29",Publisher 5,Dina Liu,4,NonFiction,653.31A,false,true
+978-1-4028-1048,"Discrete Mathematics — A Concise Introduction, Vol. 30",Publisher 23,Vera Underwood,3,NonFiction,498.78J,false,false
+978-1-4028-1049,"Modern Poetry — A Concise Introduction, Vol. 31",Publisher 21,Silas White,1,NonFiction,945.98U,false,true
+978-1-4028-1050,Heavy Gardens,Publisher 4,Jordan Adams,5,Fiction,,false,false
+978-1-4028-1051,The Pale Garden,Publisher 36,Julian Liu,4,Fiction,,false,true
+978-1-4028-1052,Dark Gardens,Publisher 6,Amara Walsh,3,Fiction,,false,true
+978-1-4028-1053,"Film Studies — A Concise Introduction, Vol. 32",Publisher 36,Viktor Torres,2,NonFiction,214.21M,false,false
+978-1-4028-1054,"Game Design — A Concise Introduction, Vol. 33",Publisher 9,Caleb Nguyen,3,NonFiction,139.19W,false,false
+978-1-4028-1055,The Open Garden,Publisher 7,Raj Haddad,5,Fiction,,false,false
+978-1-4028-1056,Closed Gardens,Publisher 8,Dante Young,6,Fiction,,false,false
+978-1-4028-1057,The Second Garden,Publisher 32,Ethan Farah,6,Fiction,,false,true
+978-1-4028-1058,"Calculus: Core Concepts, Vol. 34",Publisher 17,Dina Liu,6,NonFiction,316.45N,false,true
+978-1-4028-1059,"Organic Chemistry: Core Concepts, Vol. 35",Publisher 22,Keiko Haddad,3,NonFiction,159.46J,false,true
+978-1-4028-1060,"U.S. History: Core Concepts, Vol. 36",Publisher 34,Chen Ibrahim,5,NonFiction,115.70A,false,false
+978-1-4028-1061,First Gardens,Publisher 21,Sofia Murphy,5,Fiction,,false,true
+978-1-4028-1062,The Lost Garden,Publisher 9,Amara Kim,2,Fiction,,false,true
+978-1-4028-1063,"World Mythology: Core Concepts, Vol. 37",Publisher 22,Camila Zhou,1,NonFiction,577.81Y,false,true
+978-1-4028-1064,"Data Structures: Core Concepts, Vol. 38",Publisher 23,Amara Walsh,5,NonFiction,145.57Z,true,true
+978-1-4028-1065,"Cell Biology: Core Concepts, Vol. 39",Publisher 1,Fatima Vega,4,NonFiction,287.59Q,false,true
+978-1-4028-1066,"Macroeconomics: Core Concepts, Vol. 40",Publisher 5,Ethan Jensen,1,NonFiction,463.38Q,false,false
+978-1-4028-1067,"Environmental Science: Core Concepts, Vol. 41",Publisher 37,Oscar Brooks,5,NonFiction,522.45R,true,false
+978-1-4028-1068,"Linear Algebra: Core Concepts, Vol. 42",Publisher 13,Noor Murphy,3,NonFiction,956.65J,false,false
+978-1-4028-1069,"Psychology: Core Concepts, Vol. 43",Publisher 37,Quinn Brown,1,NonFiction,922.56E,false,true
+978-1-4028-1070,"Sociology: Core Concepts, Vol. 44",Publisher 8,James Walsh,3,NonFiction,102.91V,false,true
+978-1-4028-1071,"Art History: Core Concepts, Vol. 45",Publisher 24,Ravi Price,3,NonFiction,600.65Q,false,true
+978-1-4028-1072,"Music Theory: Core Concepts, Vol. 46",Publisher 40,Mina Zhang,1,NonFiction,685.88X,false,true
+978-1-4028-1073,"Statistics: Core Concepts, Vol. 47",Publisher 21,Marcus Lindstrom,3,NonFiction,680.51P,false,false
+978-1-4028-1074,Found Gardens,Publisher 2,Raj Green,3,Fiction,,false,false
+978-1-4028-1075,"Ethics: Core Concepts, Vol. 48",Publisher 14,Raj Haddad,1,NonFiction,203.49D,false,false
+978-1-4028-1076,The Thin Garden,Publisher 32,Naomi Cruz,6,Fiction,,false,false
+978-1-4028-1077,Thick Gardens,Publisher 16,Tomas Tanaka,6,Fiction,,false,true
+978-1-4028-1078,"Physics: Core Concepts, Vol. 49",Publisher 13,Chen Ibrahim,1,NonFiction,921.92L,false,false
+978-1-4028-1079,"Astronomy: Core Concepts, Vol. 50",Publisher 28,Caleb Nguyen,6,NonFiction,988.71H,false,true
+978-1-4028-1080,The Silent Harbor,Publisher 23,Reid Vega,5,Fiction,,false,true
+978-1-4028-1081,"Linguistics: Core Concepts, Vol. 51",Publisher 25,Vera Underwood,1,NonFiction,310.46R,false,false
+978-1-4028-1082,Broken Harbors,Publisher 14,Caleb Rivera,3,Fiction,,false,false
+978-1-4028-1083,"Anthropology: Core Concepts, Vol. 52",Publisher 21,Sana Iyer,2,NonFiction,881.74M,true,true
+978-1-4028-1084,The Last Harbor,Publisher 22,Camila Edwards,6,Fiction,,false,false
+978-1-4028-1085,Golden Harbors,Publisher 7,Sana Yilmaz,6,Fiction,,false,true
+978-1-4028-1086,The Winter Harbor,Publisher 18,James Carvalho,1,Fiction,,false,true
+978-1-4028-1087,Paper Harbors,Publisher 6,Chen Ibrahim,2,Fiction,,false,true
+978-1-4028-1088,The Glass Harbor,Publisher 39,Clara Sato,3,Fiction,,false,true
+978-1-4028-1089,"Political Science: Core Concepts, Vol. 53",Publisher 22,Raj Garcia,4,NonFiction,287.32K,true,false
+978-1-4028-1090,"Neuroscience: Core Concepts, Vol. 54",Publisher 27,Zoe Kelly,5,NonFiction,460.56Q,false,true
+978-1-4028-1091,Hidden Harbors,Publisher 35,Rosa Bakker,1,Fiction,,false,false
+978-1-4028-1092,"Geology: Core Concepts, Vol. 55",Publisher 36,Ezra Petrov,4,NonFiction,579.68C,false,true
+978-1-4028-1093,The Blue Harbor,Publisher 34,Nina Farah,6,Fiction,,false,false
+978-1-4028-1094,Wild Harbors,Publisher 8,Omar Flores,3,Fiction,,false,false
+978-1-4028-1095,The Forgotten Harbor,Publisher 29,Mina Reyes,3,Fiction,,false,true
+978-1-4028-1096,Electric Harbors,Publisher 4,Noah Reyes,3,Fiction,,false,false
+978-1-4028-1097,"Ethnography: Core Concepts, Vol. 56",Publisher 30,Ethan Jensen,5,NonFiction,915.41H,false,true
+978-1-4028-1098,"Research Methods: Core Concepts, Vol. 57",Publisher 31,Anika Alvarez,1,NonFiction,573.26Q,false,true
+978-1-4028-1099,"Public Health: Core Concepts, Vol. 58",Publisher 4,Esme Vega,1,NonFiction,601.48Y,false,true
+978-1-4028-1100,"Urban Planning: Core Concepts, Vol. 59",Publisher 11,Ren Schmidt,5,NonFiction,566.80E,false,true
+978-1-4028-1101,"Climate Policy: Core Concepts, Vol. 60",Publisher 26,Felix Rahman,1,NonFiction,990.54L,false,true
+978-1-4028-1102,"Machine Learning: Core Concepts, Vol. 61",Publisher 36,Alma Okafor,1,NonFiction,268.28B,false,true
+978-1-4028-1103,"Human Anatomy: Core Concepts, Vol. 62",Publisher 9,Bruno Liu,3,NonFiction,883.29S,false,true
+978-1-4028-1104,"Discrete Mathematics: Core Concepts, Vol. 63",Publisher 13,Jada Okonkwo,1,NonFiction,587.21E,false,true
+978-1-4028-1105,"Modern Poetry: Core Concepts, Vol. 64",Publisher 17,Sienna Park,1,NonFiction,128.31P,false,false
+978-1-4028-1106,"Film Studies: Core Concepts, Vol. 65",Publisher 23,Silas White,5,NonFiction,548.71W,false,false
+978-1-4028-1107,"Game Design: Core Concepts, Vol. 66",Publisher 28,Quinn Ito,6,NonFiction,356.12M,false,true
+978-1-4028-1108,The Midnight Harbor,Publisher 1,Mina Jackson,4,Fiction,,false,true
+978-1-4028-1109,"Calculus (Student Edition), Vol. 67",Publisher 19,Vera Petrov,6,NonFiction,162.50S,true,false
+978-1-4028-1110,Stone Harbors,Publisher 17,Rosa Torres,6,Fiction,,false,false
+978-1-4028-1111,"Organic Chemistry (Student Edition), Vol. 68",Publisher 32,Omar Vaughn,6,NonFiction,761.11V,false,true
+978-1-4028-1112,"U.S. History (Student Edition), Vol. 69",Publisher 18,Sofia Brown,6,NonFiction,465.26O,false,false
+978-1-4028-1113,"World Mythology (Student Edition), Vol. 70",Publisher 32,Dina Liu,1,NonFiction,927.78U,false,false
+978-1-4028-1114,"Data Structures (Student Edition), Vol. 71",Publisher 36,Lena Evans,5,NonFiction,926.84T,false,true
+978-1-4028-1115,"Cell Biology (Student Edition), Vol. 72",Publisher 34,Ines Carvalho,3,NonFiction,439.74H,false,true
+978-1-4028-1116,The River Harbor,Publisher 29,Esme Vega,1,Fiction,,false,true
+978-1-4028-1117,"Macroeconomics (Student Edition), Vol. 73",Publisher 23,Raj Green,6,NonFiction,992.45O,false,true
+978-1-4028-1118,Crimson Harbors,Publisher 8,Ravi Costa,5,Fiction,,false,true
+978-1-4028-1119,The Distant Harbor,Publisher 2,Owen Singh,4,Fiction,,false,true
+978-1-4028-1120,"Environmental Science (Student Edition), Vol. 74",Publisher 27,Clara Kowalski,2,NonFiction,995.65S,true,true
+978-1-4028-1121,Small Harbors,Publisher 40,Sage Nash,3,Fiction,,false,true
+978-1-4028-1122,"Linear Algebra (Student Edition), Vol. 75",Publisher 36,Dina Harris,2,NonFiction,334.42P,false,false
+978-1-4028-1123,The Bright Harbor,Publisher 37,Owen Singh,2,Fiction,,false,false
+978-1-4028-1124,Heavy Harbors,Publisher 11,Yael Silva,3,Fiction,,false,true
+978-1-4028-1125,The Pale Harbor,Publisher 38,Sana Walsh,3,Fiction,,false,true
+978-1-4028-1126,Dark Harbors,Publisher 36,Finn Yilmaz,2,Fiction,,false,true
+978-1-4028-1127,"Psychology (Student Edition), Vol. 76",Publisher 26,Esme Uzun,2,NonFiction,294.96F,false,false
+978-1-4028-1128,"Sociology (Student Edition), Vol. 77",Publisher 9,Theo Quinn,4,NonFiction,493.25N,false,true
+978-1-4028-1129,"Art History (Student Edition), Vol. 78",Publisher 6,Lena Farah,2,NonFiction,608.21I,false,false
+978-1-4028-1130,The Open Harbor,Publisher 31,Zoe Kelly,4,Fiction,,false,true
+978-1-4028-1131,"Music Theory (Student Edition), Vol. 79",Publisher 22,Julian Petrov,5,NonFiction,332.57P,false,true
+978-1-4028-1132,"Statistics (Student Edition), Vol. 80",Publisher 17,Hugo Rahman,1,NonFiction,432.75O,true,false
+978-1-4028-1133,"Ethics (Student Edition), Vol. 81",Publisher 30,Mateo Tanaka,1,NonFiction,779.96F,false,false
+978-1-4028-1134,"Physics (Student Edition), Vol. 82",Publisher 37,Julian Sato,2,NonFiction,448.48F,false,false
+978-1-4028-1135,Closed Harbors,Publisher 35,Alma Lindstrom,4,Fiction,,false,true
+978-1-4028-1136,"Astronomy (Student Edition), Vol. 83",Publisher 16,Rowan Ito,4,NonFiction,367.96J,false,true
+978-1-4028-1137,The Second Harbor,Publisher 28,Clara Kowalski,1,Fiction,,false,true
+978-1-4028-1138,"Linguistics (Student Edition), Vol. 84",Publisher 24,Mira Jensen,1,NonFiction,481.38G,false,false
+978-1-4028-1139,"Anthropology (Student Edition), Vol. 85",Publisher 15,Rosa Vargas,5,NonFiction,469.44X,false,false
+978-1-4028-1140,First Harbors,Publisher 37,Owen Singh,4,Fiction,,false,true
+978-1-4028-1141,"Political Science (Student Edition), Vol. 86",Publisher 17,Alma Lindstrom,3,NonFiction,520.78R,false,false
+978-1-4028-1142,"Neuroscience (Student Edition), Vol. 87",Publisher 17,Adrian Morales,2,NonFiction,933.61O,false,false
+978-1-4028-1143,The Lost Harbor,Publisher 10,Mira Jensen,3,Fiction,,false,true
+978-1-4028-1144,Found Harbors,Publisher 24,Ezra Petrov,6,Fiction,,false,true
+978-1-4028-1145,The Thin Harbor,Publisher 8,Paola Davis,5,Fiction,,false,false
+978-1-4028-1146,Thick Harbors,Publisher 19,Kwame Adams,4,Fiction,,false,false
+978-1-4028-1147,The Silent Clock,Publisher 19,Gavin Mensah,3,Fiction,,false,false
+978-1-4028-1148,"Geology (Student Edition), Vol. 88",Publisher 5,Nolan Murphy,2,NonFiction,385.30B,false,true
+978-1-4028-1149,Broken Clocks,Publisher 22,Bruno Bakker,4,Fiction,,false,true
+978-1-4028-1150,"Ethnography (Student Edition), Vol. 89",Publisher 19,Talia Ahmed,5,NonFiction,697.77H,false,true
+978-1-4028-1151,"Research Methods (Student Edition), Vol. 90",Publisher 17,Nadia Mensah,5,NonFiction,297.52M,false,true
+978-1-4028-1152,"Public Health (Student Edition), Vol. 91",Publisher 16,Esme Carvalho,3,NonFiction,249.97N,false,false
+978-1-4028-1153,The Last Clock,Publisher 17,Quinn Ito,3,Fiction,,false,true
+978-1-4028-1154,"Urban Planning (Student Edition), Vol. 92",Publisher 38,Nina Dubois,2,NonFiction,454.66Z,true,true
+978-1-4028-1155,Golden Clocks,Publisher 3,James Costa,6,Fiction,,false,true
+978-1-4028-1156,The Winter Clock,Publisher 39,Felix Ortega,1,Fiction,,false,true
+978-1-4028-1157,Paper Clocks,Publisher 21,Sienna Green,3,Fiction,,false,true
+978-1-4028-1158,The Glass Clock,Publisher 24,Julian Petrov,3,Fiction,,false,true
+978-1-4028-1159,"Climate Policy (Student Edition), Vol. 93",Publisher 21,Clara Abbott,1,NonFiction,278.98L,false,false
+978-1-4028-1160,"Machine Learning (Student Edition), Vol. 94",Publisher 21,Bruno Tanaka,3,NonFiction,459.57W,false,true
+978-1-4028-1161,Hidden Clocks,Publisher 28,Clara Kowalski,1,Fiction,,false,true
+978-1-4028-1162,The Blue Clock,Publisher 18,Kira Brooks,3,Fiction,,false,true
+978-1-4028-1163,"Human Anatomy (Student Edition), Vol. 95",Publisher 35,Esme Dubois,1,NonFiction,267.70L,false,false
+978-1-4028-1164,"Discrete Mathematics (Student Edition), Vol. 96",Publisher 32,Tessa Hernandez,6,NonFiction,601.58G,false,false
+978-1-4028-1165,"Modern Poetry (Student Edition), Vol. 97",Publisher 35,Felix Xu,3,NonFiction,801.75Q,false,false
+978-1-4028-1166,"Film Studies (Student Edition), Vol. 98",Publisher 18,Sofia Ito,1,NonFiction,597.95V,false,false
+978-1-4028-1167,"Game Design (Student Edition), Vol. 99",Publisher 36,Finn Yilmaz,3,NonFiction,839.59P,true,true
+978-1-4028-1168,Wild Clocks,Publisher 33,Priya Murphy,6,Fiction,,false,false
+978-1-4028-1169,"Calculus: Practice and Theory, Vol. 100",Publisher 1,Yara Jackson,2,NonFiction,304.66O,false,true
+978-1-4028-1170,"Organic Chemistry: Practice and Theory, Vol. 101",Publisher 9,Amara Kelly,6,NonFiction,753.22V,false,false
+978-1-4028-1171,The Forgotten Clock,Publisher 17,Andre Price,2,Fiction,,false,true
+978-1-4028-1172,Electric Clocks,Publisher 18,Mina Ito,2,Fiction,,false,true
+978-1-4028-1173,The Midnight Clock,Publisher 32,Bianca Adams,3,Fiction,,false,true
+978-1-4028-1174,"U.S. History: Practice and Theory, Vol. 102",Publisher 11,Isaac Uzun,4,NonFiction,886.86W,false,true
+978-1-4028-1175,Stone Clocks,Publisher 7,Maria Owens,5,Fiction,,false,true
+978-1-4028-1176,The River Clock,Publisher 34,Freya Liu,2,Fiction,,false,false
+978-1-4028-1177,Crimson Clocks,Publisher 27,Iris Rossi,6,Fiction,,false,false
+978-1-4028-1178,"World Mythology: Practice and Theory, Vol. 103",Publisher 5,Nolan Murphy,6,NonFiction,699.43S,false,false
+978-1-4028-1179,"Data Structures: Practice and Theory, Vol. 104",Publisher 37,Esme Vega,1,NonFiction,260.44I,false,true
+978-1-4028-1180,"Cell Biology: Practice and Theory, Vol. 105",Publisher 25,Caleb Lindstrom,2,NonFiction,116.12C,false,true
+978-1-4028-1181,"Macroeconomics: Practice and Theory, Vol. 106",Publisher 31,Mina Zhang,5,NonFiction,134.97F,false,true
+978-1-4028-1182,"Environmental Science: Practice and Theory, Vol. 107",Publisher 29,Ian Alvarez,6,NonFiction,343.91U,false,false
+978-1-4028-1183,The Distant Clock,Publisher 22,Esme Olsen,1,Fiction,,false,true
+978-1-4028-1184,Small Clocks,Publisher 32,Felix Xu,2,Fiction,,false,false
+978-1-4028-1185,"Linear Algebra: Practice and Theory, Vol. 108",Publisher 5,Keiko Haddad,2,NonFiction,277.26S,false,true
+978-1-4028-1186,"Psychology: Practice and Theory, Vol. 109",Publisher 23,Andre Davis,5,NonFiction,445.14L,false,true
+978-1-4028-1187,The Bright Clock,Publisher 28,Axel Yilmaz,5,Fiction,,false,true
+978-1-4028-1188,Heavy Clocks,Publisher 12,Sana Yilmaz,1,Fiction,,false,true
+978-1-4028-1189,The Pale Clock,Publisher 22,Keiko Haddad,3,Fiction,,false,true
+978-1-4028-1190,Dark Clocks,Publisher 10,Ezra Perez,6,Fiction,,false,true
+978-1-4028-1191,"Sociology: Practice and Theory, Vol. 110",Publisher 8,Ren Yamamoto,2,NonFiction,694.17C,false,false
+978-1-4028-1192,The Open Clock,Publisher 39,Viktor Patel,1,Fiction,,false,true
+978-1-4028-1193,"Art History: Practice and Theory, Vol. 111",Publisher 6,Lila Petrov,4,NonFiction,456.38U,true,true
+978-1-4028-1194,"Music Theory: Practice and Theory, Vol. 112",Publisher 8,Esme Carvalho,5,NonFiction,901.98F,false,true
+978-1-4028-1195,"Statistics: Practice and Theory, Vol. 113",Publisher 10,Skye Nakamura,6,NonFiction,573.27J,false,true
+978-1-4028-1196,"Ethics: Practice and Theory, Vol. 114",Publisher 33,Axel Vargas,6,NonFiction,506.66Y,false,false
+978-1-4028-1197,"Physics: Practice and Theory, Vol. 115",Publisher 29,Emilio Carvalho,3,NonFiction,829.42R,false,true
+978-1-4028-1198,Closed Clocks,Publisher 10,Julian Petrov,3,Fiction,,false,true
+978-1-4028-1199,The Second Clock,Publisher 16,Axel Harris,5,Fiction,,false,true
+978-1-4028-1200,First Clocks,Publisher 25,Nina Dubois,3,Fiction,,false,true
+978-1-4028-1201,The Lost Clock,Publisher 17,Reid Reyes,6,Fiction,,false,true
+978-1-4028-1202,Found Clocks,Publisher 17,Anika Ito,2,Fiction,,false,true
+978-1-4028-1203,"Astronomy: Practice and Theory, Vol. 116",Publisher 20,Omar Flores,4,NonFiction,725.62T,false,true
+978-1-4028-1204,The Thin Clock,Publisher 28,Sana Rossi,6,Fiction,,false,true
+978-1-4028-1205,"Linguistics: Practice and Theory, Vol. 117",Publisher 7,Aisha Petrov,4,NonFiction,117.23Y,false,true
+978-1-4028-1206,Thick Clocks,Publisher 31,Noor Murphy,4,Fiction,,false,false
+978-1-4028-1207,"Anthropology: Practice and Theory, Vol. 118",Publisher 11,Ethan Kaur,6,NonFiction,869.48U,false,true
+978-1-4028-1208,"Political Science: Practice and Theory, Vol. 119",Publisher 4,Tessa Walsh,5,NonFiction,820.75N,false,true
+978-1-4028-1209,The Silent Bridge,Publisher 1,Marcus Quinn,1,Fiction,,false,false
+978-1-4028-1210,Broken Bridges,Publisher 18,James Walsh,5,Fiction,,false,true
+978-1-4028-1211,"Neuroscience: Practice and Theory, Vol. 120",Publisher 37,Viktor Torres,6,NonFiction,221.55V,false,true
+978-1-4028-1212,The Last Bridge,Publisher 35,Iris Rossi,2,Fiction,,false,false
+978-1-4028-1213,Golden Bridges,Publisher 2,Mina Olsen,1,Fiction,,false,true
+978-1-4028-1214,The Winter Bridge,Publisher 10,Bruno Lindstrom,5,Fiction,,false,true
+978-1-4028-1215,"Geology: Practice and Theory, Vol. 121",Publisher 9,Bianca Adams,2,NonFiction,164.18A,true,true
+978-1-4028-1216,Paper Bridges,Publisher 6,Rosa Torres,1,Fiction,,false,true
+978-1-4028-1217,The Glass Bridge,Publisher 40,Nina Farah,1,Fiction,,false,true
+978-1-4028-1218,"Ethnography: Practice and Theory, Vol. 122",Publisher 14,Maria Adams,1,NonFiction,350.43V,false,false
+978-1-4028-1219,Hidden Bridges,Publisher 36,Rowan Iyer,5,Fiction,,false,true
+978-1-4028-1220,"Research Methods: Practice and Theory, Vol. 123",Publisher 35,Caleb Lindstrom,5,NonFiction,603.93M,false,true
+978-1-4028-1221,"Public Health: Practice and Theory, Vol. 124",Publisher 34,Mina Zhang,4,NonFiction,487.74Q,false,true
+978-1-4028-1222,The Blue Bridge,Publisher 13,Alma Okafor,2,Fiction,,false,true
+978-1-4028-1223,Wild Bridges,Publisher 20,Nadia Mensah,6,Fiction,,false,true
+978-1-4028-1224,The Forgotten Bridge,Publisher 10,Alma Park,6,Fiction,,false,true
+978-1-4028-1225,"Urban Planning: Practice and Theory, Vol. 125",Publisher 39,Julian Liu,5,NonFiction,111.27A,false,true
+978-1-4028-1226,"Climate Policy: Practice and Theory, Vol. 126",Publisher 12,Priya Sato,6,NonFiction,584.16C,false,true
+978-1-4028-1227,Electric Bridges,Publisher 38,Sage Nash,3,Fiction,,false,false
+978-1-4028-1228,The Midnight Bridge,Publisher 33,Paola Yilmaz,1,Fiction,,false,true
+978-1-4028-1229,"Machine Learning: Practice and Theory, Vol. 127",Publisher 9,Anika Ito,6,NonFiction,259.98F,true,true
+978-1-4028-1230,Stone Bridges,Publisher 40,Sofia Cruz,4,Fiction,,false,true
+978-1-4028-1231,"Human Anatomy: Practice and Theory, Vol. 128",Publisher 3,Fatima Nakamura,2,NonFiction,840.96J,false,false
+978-1-4028-1232,The River Bridge,Publisher 20,Kwame Okafor,6,Fiction,,false,true
+978-1-4028-1233,Crimson Bridges,Publisher 8,Sana Liu,1,Fiction,,false,false
+978-1-4028-1234,"Discrete Mathematics: Practice and Theory, Vol. 129",Publisher 26,Andre Price,4,NonFiction,872.87J,false,false
+978-1-4028-1235,"Modern Poetry: Practice and Theory, Vol. 130",Publisher 17,Julian Petrov,3,NonFiction,406.88Z,true,false
+978-1-4028-1236,The Distant Bridge,Publisher 16,Mina Weiss,4,Fiction,,false,false
+978-1-4028-1237,"Film Studies: Practice and Theory, Vol. 131",Publisher 6,Julian Sato,2,NonFiction,291.80H,false,false
+978-1-4028-1238,Small Bridges,Publisher 2,Viktor Torres,4,Fiction,,false,false
+978-1-4028-1239,The Bright Bridge,Publisher 9,Alma Novak,6,Fiction,,false,true
+978-1-4028-1240,Heavy Bridges,Publisher 38,Tessa Rahman,4,Fiction,,false,false
+978-1-4028-1241,The Pale Bridge,Publisher 1,Amara Kim,6,Fiction,,false,true
+978-1-4028-1242,Dark Bridges,Publisher 8,Dina Liu,3,Fiction,,false,true
+978-1-4028-1243,The Open Bridge,Publisher 2,Lena Farah,5,Fiction,,false,true
+978-1-4028-1244,"Game Design: Practice and Theory, Vol. 132",Publisher 16,Bruno Bakker,1,NonFiction,148.13M,false,true
+978-1-4028-1245,Closed Bridges,Publisher 17,Anika Alvarez,1,Fiction,,false,true
+978-1-4028-1246,"Calculus — Essential Readings, Vol. 133",Publisher 13,Ravi Morales,5,NonFiction,547.58K,false,false
+978-1-4028-1247,The Second Bridge,Publisher 7,Tomas Zhang,4,Fiction,,false,true
+978-1-4028-1248,First Bridges,Publisher 33,Marcus Lindstrom,6,Fiction,,false,true
+978-1-4028-1249,"Organic Chemistry — Essential Readings, Vol. 134",Publisher 32,Esme Carvalho,5,NonFiction,111.20Z,true,true
+978-1-4028-1250,The Lost Bridge,Publisher 10,Rhys Kowalski,6,Fiction,,false,true
+978-1-4028-1251,"U.S. History — Essential Readings, Vol. 135",Publisher 14,Zara Bakker,3,NonFiction,385.70K,false,true
+978-1-4028-1252,Found Bridges,Publisher 13,Clara Yilmaz,1,Fiction,,false,true
+978-1-4028-1253,The Thin Bridge,Publisher 39,Sofia Murphy,5,Fiction,,false,true
+978-1-4028-1254,Thick Bridges,Publisher 25,Felix Quintero,1,Fiction,,false,true
+978-1-4028-1255,The Silent Song,Publisher 34,Talia Jackson,5,Fiction,,false,true
+978-1-4028-1256,"World Mythology — Essential Readings, Vol. 136",Publisher 17,Caleb Zhou,3,NonFiction,868.92Y,false,false
+978-1-4028-1257,"Data Structures — Essential Readings, Vol. 137",Publisher 9,Finn Ito,1,NonFiction,766.74G,false,true
+978-1-4028-1258,Broken Songs,Publisher 19,Nadia Mensah,5,Fiction,,false,false
+978-1-4028-1259,"Cell Biology — Essential Readings, Vol. 138",Publisher 25,Julian Liu,1,NonFiction,171.26P,true,true
+978-1-4028-1260,"Macroeconomics — Essential Readings, Vol. 139",Publisher 2,James Walsh,6,NonFiction,754.26Y,false,true
+978-1-4028-1261,The Last Song,Publisher 18,Kira Kelly,1,Fiction,,false,true
+978-1-4028-1262,"Environmental Science — Essential Readings, Vol. 140",Publisher 19,Ethan Weiss,4,NonFiction,153.92T,false,false
+978-1-4028-1263,Golden Songs,Publisher 39,Axel Lopez,6,Fiction,,false,true
+978-1-4028-1264,The Winter Song,Publisher 29,Sana Perez,4,Fiction,,false,false
+978-1-4028-1265,Paper Songs,Publisher 39,Aisha Foster,6,Fiction,,false,true
+978-1-4028-1266,"Linear Algebra — Essential Readings, Vol. 141",Publisher 26,Zoe Kelly,2,NonFiction,287.55P,false,true
+978-1-4028-1267,The Glass Song,Publisher 33,Maria Adams,2,Fiction,,false,true
+978-1-4028-1268,"Psychology — Essential Readings, Vol. 142",Publisher 23,Tariq Mensah,4,NonFiction,108.24O,false,false
+978-1-4028-1269,Hidden Songs,Publisher 2,Mina Zhang,3,Fiction,,false,true
+978-1-4028-1270,"Sociology — Essential Readings, Vol. 143",Publisher 1,Zoe Yamamoto,3,NonFiction,337.99X,false,false
+978-1-4028-1271,"Art History — Essential Readings, Vol. 144",Publisher 34,Bianca Liu,4,NonFiction,459.76W,false,true
+978-1-4028-1272,"Music Theory — Essential Readings, Vol. 145",Publisher 15,Zara Silva,6,NonFiction,398.70S,false,true
+978-1-4028-1273,"Statistics — Essential Readings, Vol. 146",Publisher 13,Felix Ortega,5,NonFiction,332.16T,false,true
+978-1-4028-1274,The Blue Song,Publisher 28,Zara Silva,4,Fiction,,false,false
+978-1-4028-1275,Wild Songs,Publisher 13,Amara Kim,6,Fiction,,false,true
+978-1-4028-1276,The Forgotten Song,Publisher 15,Lila Petrov,3,Fiction,,false,true
+978-1-4028-1277,Electric Songs,Publisher 6,Axel Yilmaz,6,Fiction,,false,true
+978-1-4028-1278,"Ethics — Essential Readings, Vol. 147",Publisher 2,Dina Yamamoto,2,NonFiction,308.62B,true,true
+978-1-4028-1279,"Physics — Essential Readings, Vol. 148",Publisher 17,Andre Price,1,NonFiction,495.30H,false,true
+978-1-4028-1280,"Astronomy — Essential Readings, Vol. 149",Publisher 24,Tariq Tanaka,2,NonFiction,686.26M,false,true
+978-1-4028-1281,The Midnight Song,Publisher 18,Anika Alvarez,2,Fiction,,false,true
+978-1-4028-1282,"Linguistics — Essential Readings, Vol. 150",Publisher 11,Ethan Kaur,2,NonFiction,493.92V,false,true
+978-1-4028-1283,Stone Songs,Publisher 36,Chen Ibrahim,4,Fiction,,false,true
+978-1-4028-1284,The River Song,Publisher 27,Vera Chang,6,Fiction,,false,false
+978-1-4028-1285,Crimson Songs,Publisher 40,Tomas Zhang,5,Fiction,,false,true
+978-1-4028-1286,"Anthropology — Essential Readings, Vol. 151",Publisher 12,Alma Patel,6,NonFiction,601.54P,false,false
+978-1-4028-1287,"Political Science — Essential Readings, Vol. 152",Publisher 4,Oscar Brooks,3,NonFiction,433.34X,false,true
+978-1-4028-1288,"Neuroscience — Essential Readings, Vol. 153",Publisher 10,Maria Owens,6,NonFiction,870.33N,false,false
+978-1-4028-1289,The Distant Song,Publisher 22,Gavin Mensah,5,Fiction,,false,false
+978-1-4028-1290,"Geology — Essential Readings, Vol. 154",Publisher 4,Isaac Singh,5,NonFiction,327.14S,false,true
+978-1-4028-1291,"Ethnography — Essential Readings, Vol. 155",Publisher 27,Lena Hernandez,3,NonFiction,607.71N,false,true
+978-1-4028-1292,"Research Methods — Essential Readings, Vol. 156",Publisher 17,Alma Novak,5,NonFiction,399.33M,false,true
+978-1-4028-1293,"Public Health — Essential Readings, Vol. 157",Publisher 17,Kai Jensen,3,NonFiction,958.29W,true,true
+978-1-4028-1294,"Urban Planning — Essential Readings, Vol. 158",Publisher 8,Mina Zhang,2,NonFiction,422.87G,false,true
+978-1-4028-1295,"Climate Policy — Essential Readings, Vol. 159",Publisher 12,Clara Sato,3,NonFiction,563.88J,false,true
+978-1-4028-1296,Small Songs,Publisher 29,Axel Lopez,2,Fiction,,false,true
+978-1-4028-1297,The Bright Song,Publisher 40,Felipe Lopez,6,Fiction,,false,false
+978-1-4028-1298,Heavy Songs,Publisher 26,Ren Garcia,5,Fiction,,false,true
+978-1-4028-1299,The Pale Song,Publisher 30,Mina Zhang,1,Fiction,,false,true
+978-1-4028-1300,Dark Songs,Publisher 7,Yuki Carvalho,2,Fiction,,false,false
+978-1-4028-1301,The Open Song,Publisher 12,Yael Berg,5,Fiction,,false,true
+978-1-4028-1302,Closed Songs,Publisher 7,Maya Vega,4,Fiction,,false,true
+978-1-4028-1303,The Second Song,Publisher 20,Zoe Kelly,2,Fiction,,false,false
+978-1-4028-1304,"Machine Learning — Essential Readings, Vol. 160",Publisher 33,Vera Petrov,2,NonFiction,765.11A,false,false
+978-1-4028-1305,First Songs,Publisher 17,Ethan Kaur,5,Fiction,,false,true
+978-1-4028-1306,"Human Anatomy — Essential Readings, Vol. 161",Publisher 35,Naomi Murphy,2,NonFiction,659.25F,false,false
+978-1-4028-1307,The Lost Song,Publisher 33,Lila Alvarez,5,Fiction,,false,true
+978-1-4028-1308,Found Songs,Publisher 9,Mina Harris,2,Fiction,,false,true
+978-1-4028-1309,"Discrete Mathematics — Essential Readings, Vol. 162",Publisher 28,Kira Brooks,6,NonFiction,125.10G,false,false
+978-1-4028-1310,The Thin Song,Publisher 1,Dante Young,1,Fiction,,false,true
+978-1-4028-1311,Thick Songs,Publisher 12,Nina Farah,4,Fiction,,false,false
+978-1-4028-1312,The Silent House,Publisher 21,Fatima Nakamura,6,Fiction,,false,false
+978-1-4028-1313,"Modern Poetry — Essential Readings, Vol. 163",Publisher 24,Ethan Farah,1,NonFiction,839.11F,false,true
+978-1-4028-1314,Broken Houses,Publisher 36,Rowan Ito,2,Fiction,,false,true
+978-1-4028-1315,"Film Studies — Essential Readings, Vol. 164",Publisher 1,Reid Vega,1,NonFiction,640.51T,false,false
+978-1-4028-1316,"Game Design — Essential Readings, Vol. 165",Publisher 20,Noah Reyes,2,NonFiction,757.29T,false,false
+978-1-4028-1317,The Last House,Publisher 38,Hugo Davis,2,Fiction,,false,true
+978-1-4028-1318,"Calculus: Laboratory Companion, Vol. 166",Publisher 6,Ravi Morales,3,NonFiction,370.88V,false,true
+978-1-4028-1319,Golden Houses,Publisher 15,Ethan Weiss,4,Fiction,,false,false
+978-1-4028-1320,The Winter House,Publisher 8,Chen Vaughn,4,Fiction,,false,true
+978-1-4028-1321,Paper Houses,Publisher 32,Rosa Vaughn,4,Fiction,,false,true
+978-1-4028-1322,"Organic Chemistry: Laboratory Companion, Vol. 167",Publisher 7,Quinn Brown,1,NonFiction,763.60T,false,false
+978-1-4028-1323,"U.S. History: Laboratory Companion, Vol. 168",Publisher 24,Julian Sato,1,NonFiction,756.84Y,false,true
+978-1-4028-1324,"World Mythology: Laboratory Companion, Vol. 169",Publisher 38,Quinn Ito,3,NonFiction,935.48F,false,true
+978-1-4028-1325,"Data Structures: Laboratory Companion, Vol. 170",Publisher 38,James Walsh,6,NonFiction,281.28G,true,false
+978-1-4028-1326,The Glass House,Publisher 23,Mina Zhang,4,Fiction,,false,false
+978-1-4028-1327,Hidden Houses,Publisher 33,Caleb Lindstrom,2,Fiction,,false,true
+978-1-4028-1328,The Blue House,Publisher 5,Mateo Tanaka,4,Fiction,,false,false
+978-1-4028-1329,"Cell Biology: Laboratory Companion, Vol. 171",Publisher 21,Nolan Murphy,2,NonFiction,658.27Q,false,true
+978-1-4028-1330,Wild Houses,Publisher 12,Yuki Carvalho,4,Fiction,,false,true
+978-1-4028-1331,"Macroeconomics: Laboratory Companion, Vol. 172",Publisher 31,Nadia Mensah,4,NonFiction,100.41R,false,true
+978-1-4028-1332,"Environmental Science: Laboratory Companion, Vol. 173",Publisher 36,Lila Petrov,5,NonFiction,444.43G,false,true
+978-1-4028-1333,The Forgotten House,Publisher 3,Skye Nakamura,5,Fiction,,false,false
+978-1-4028-1334,"Linear Algebra: Laboratory Companion, Vol. 174",Publisher 19,Isaac Uzun,5,NonFiction,382.48Q,true,true
+978-1-4028-1335,"Psychology: Laboratory Companion, Vol. 175",Publisher 17,Paola Yilmaz,4,NonFiction,264.44J,false,true
+978-1-4028-1336,Electric Houses,Publisher 30,Jordan Adams,6,Fiction,,false,true
+978-1-4028-1337,"Sociology: Laboratory Companion, Vol. 176",Publisher 9,Anika Ahmed,1,NonFiction,700.80C,false,false
+978-1-4028-1338,"Art History: Laboratory Companion, Vol. 177",Publisher 22,Tessa Rahman,4,NonFiction,396.29K,false,false
+978-1-4028-1339,"Music Theory: Laboratory Companion, Vol. 178",Publisher 13,Iris Rossi,4,NonFiction,872.33T,false,false
+978-1-4028-1340,"Statistics: Laboratory Companion, Vol. 179",Publisher 26,Oscar Brooks,1,NonFiction,169.73V,false,true
+978-1-4028-1341,"Ethics: Laboratory Companion, Vol. 180",Publisher 36,Emilio Carvalho,6,NonFiction,115.83S,false,true
+978-1-4028-1342,"Physics: Laboratory Companion, Vol. 181",Publisher 17,Camila Edwards,6,NonFiction,610.88Z,false,false
+978-1-4028-1343,"Astronomy: Laboratory Companion, Vol. 182",Publisher 17,Dante Young,2,NonFiction,168.67N,false,true
+978-1-4028-1344,"Linguistics: Laboratory Companion, Vol. 183",Publisher 19,Axel Yilmaz,4,NonFiction,333.88B,false,true
+978-1-4028-1345,The Midnight House,Publisher 12,Mina Ito,2,Fiction,,false,true
+978-1-4028-1346,"Anthropology: Laboratory Companion, Vol. 184",Publisher 33,Tomas Zhang,3,NonFiction,864.45K,false,false
+978-1-4028-1347,"Political Science: Laboratory Companion, Vol. 185",Publisher 21,Dina Liu,4,NonFiction,645.30Z,false,true
+978-1-4028-1348,"Neuroscience: Laboratory Companion, Vol. 186",Publisher 30,Sana Liu,6,NonFiction,238.51K,false,true
+978-1-4028-1349,"Geology: Laboratory Companion, Vol. 187",Publisher 38,Sana Perez,4,NonFiction,620.32S,false,true
+978-1-4028-1350,"Ethnography: Laboratory Companion, Vol. 188",Publisher 6,Zoe Yamamoto,2,NonFiction,602.50E,false,true
+978-1-4028-1351,Stone Houses,Publisher 9,Mateo Harris,4,Fiction,,false,true
+978-1-4028-1352,"Research Methods: Laboratory Companion, Vol. 189",Publisher 3,Andre Davis,2,NonFiction,452.76J,false,false
+978-1-4028-1353,"Public Health: Laboratory Companion, Vol. 190",Publisher 6,Tariq Mensah,2,NonFiction,805.64G,false,true
+978-1-4028-1354,"Urban Planning: Laboratory Companion, Vol. 191",Publisher 5,Rhys Turner,5,NonFiction,211.47X,false,true
+978-1-4028-1355,The River House,Publisher 26,Omar Quintero,5,Fiction,,false,true
+978-1-4028-1356,"Climate Policy: Laboratory Companion, Vol. 192",Publisher 5,Nina Morales,2,NonFiction,156.24J,false,true
+978-1-4028-1357,Crimson Houses,Publisher 24,Dina Lindstrom,6,Fiction,,false,false
+978-1-4028-1358,"Machine Learning: Laboratory Companion, Vol. 193",Publisher 35,Felipe Lopez,2,NonFiction,628.19Q,false,true
+978-1-4028-1359,"Human Anatomy: Laboratory Companion, Vol. 194",Publisher 38,Quinn Santos,4,NonFiction,776.44G,false,true
+978-1-4028-1360,The Distant House,Publisher 17,Sofia Murphy,1,Fiction,,false,false
+978-1-4028-1361,"Discrete Mathematics: Laboratory Companion, Vol. 195",Publisher 33,Axel Vargas,2,NonFiction,176.82D,false,false
+978-1-4028-1362,"Modern Poetry: Laboratory Companion, Vol. 196",Publisher 38,Jonah Alvarez,3,NonFiction,928.32M,false,true
+978-1-4028-1363,"Film Studies: Laboratory Companion, Vol. 197",Publisher 5,Ian Alvarez,4,NonFiction,532.50X,false,false
+978-1-4028-1364,Small Houses,Publisher 30,Silas White,6,Fiction,,false,true
+978-1-4028-1365,The Bright House,Publisher 14,Skye Nakamura,6,Fiction,,false,false
+978-1-4028-1366,Heavy Houses,Publisher 29,Freya Liu,3,Fiction,,false,true
+978-1-4028-1367,The Pale House,Publisher 25,Hugo Diaz,5,Fiction,,false,true
+978-1-4028-1368,"Game Design: Laboratory Companion, Vol. 198",Publisher 26,Axel Yilmaz,4,NonFiction,235.25I,false,true
+978-1-4028-1369,"Calculus — A Concise Introduction, Vol. 199",Publisher 17,Ren Nielsen,6,NonFiction,243.64I,false,false
+978-1-4028-1370,Dark Houses,Publisher 8,Mateo Tanaka,3,Fiction,,false,true
+978-1-4028-1371,"Organic Chemistry — A Concise Introduction, Vol. 200",Publisher 34,Skye Santos,3,NonFiction,707.58Y,false,false
+978-1-4028-1372,"U.S. History — A Concise Introduction, Vol. 201",Publisher 20,Sage Ito,2,NonFiction,155.49G,true,false
+978-1-4028-1373,"World Mythology — A Concise Introduction, Vol. 202",Publisher 25,Theo Quinn,2,NonFiction,994.98B,false,true
+978-1-4028-1374,The Open House,Publisher 13,Esme Brown,6,Fiction,,false,false
+978-1-4028-1375,Closed Houses,Publisher 18,Mina Weiss,4,Fiction,,false,true
+978-1-4028-1376,The Second House,Publisher 3,Julian Petrov,4,Fiction,,false,false
+978-1-4028-1377,First Houses,Publisher 15,Willa Brown,6,Fiction,,false,false
+978-1-4028-1378,"Data Structures — A Concise Introduction, Vol. 203",Publisher 31,Rosa Vargas,2,NonFiction,485.45M,false,true
+978-1-4028-1379,The Lost House,Publisher 17,Sofia Murphy,1,Fiction,,false,true
+978-1-4028-1380,"Cell Biology — A Concise Introduction, Vol. 204",Publisher 9,Nina Dubois,5,NonFiction,175.36K,true,true
+978-1-4028-1381,Found Houses,Publisher 18,Chen Cohen,2,Fiction,,false,false
+978-1-4028-1382,The Thin House,Publisher 9,Yuki Hernandez,2,Fiction,,false,true
+978-1-4028-1383,Thick Houses,Publisher 36,Dina Lindstrom,5,Fiction,,false,false
+978-1-4028-1384,"Macroeconomics — A Concise Introduction, Vol. 205",Publisher 30,Samir Ortega,4,NonFiction,944.27R,false,true
+978-1-4028-1385,The Silent Road,Publisher 33,Ezra Murphy,2,Fiction,,false,true
+978-1-4028-1386,Broken Roads,Publisher 5,Anika Ahmed,2,Fiction,,false,false
+978-1-4028-1387,"Environmental Science — A Concise Introduction, Vol. 206",Publisher 40,Mina Zhang,1,NonFiction,915.91B,false,true
+978-1-4028-1388,The Last Road,Publisher 17,Iris Edwards,4,Fiction,,false,true
+978-1-4028-1389,"Linear Algebra — A Concise Introduction, Vol. 207",Publisher 34,Leila Okonkwo,3,NonFiction,374.64Z,false,false
+978-1-4028-1390,Golden Roads,Publisher 38,Ben Khan,4,Fiction,,false,true
+978-1-4028-1391,The Winter Road,Publisher 29,Felipe Lopez,1,Fiction,,false,true
+978-1-4028-1392,"Psychology — A Concise Introduction, Vol. 208",Publisher 2,Yara Kim,2,NonFiction,687.56Y,false,true
+978-1-4028-1393,Paper Roads,Publisher 24,James Carvalho,2,Fiction,,false,false
+978-1-4028-1394,"Sociology — A Concise Introduction, Vol. 209",Publisher 10,Zoe Yamamoto,3,NonFiction,410.97Y,true,true
+978-1-4028-1395,"Art History — A Concise Introduction, Vol. 210",Publisher 34,Omar Vaughn,4,NonFiction,793.24N,false,true
+978-1-4028-1396,The Glass Road,Publisher 38,Adrian Morales,6,Fiction,,false,true
+978-1-4028-1397,"Music Theory — A Concise Introduction, Vol. 211",Publisher 40,Omar Vaughn,4,NonFiction,386.86M,false,true
+978-1-4028-1398,Hidden Roads,Publisher 5,Bruno Tanaka,6,Fiction,,false,true
+978-1-4028-1399,The Blue Road,Publisher 28,Leo Brown,2,Fiction,,false,true
+978-1-4028-1400,Wild Roads,Publisher 27,Leila Nguyen,1,Fiction,,false,true
+978-1-4028-1401,The Forgotten Road,Publisher 31,Axel Yilmaz,6,Fiction,,false,false
+978-1-4028-1402,Electric Roads,Publisher 26,Nina Farah,1,Fiction,,false,true
+978-1-4028-1403,"Statistics — A Concise Introduction, Vol. 212",Publisher 7,Theo Berg,4,NonFiction,842.54J,false,false
+978-1-4028-1404,The Midnight Road,Publisher 32,Dante Okonkwo,2,Fiction,,false,false
+978-1-4028-1405,"Ethics — A Concise Introduction, Vol. 213",Publisher 9,Jonah Alvarez,6,NonFiction,877.64E,false,true
+978-1-4028-1406,Stone Roads,Publisher 26,Andre Davis,2,Fiction,,false,true
+978-1-4028-1407,The River Road,Publisher 22,Ren Kim,3,Fiction,,false,true
+978-1-4028-1408,Crimson Roads,Publisher 35,Priya Morales,1,Fiction,,false,true
+978-1-4028-1409,The Distant Road,Publisher 15,Raj Garcia,5,Fiction,,false,true
+978-1-4028-1410,Small Roads,Publisher 7,Paola Davis,3,Fiction,,false,true
+978-1-4028-1411,"Physics — A Concise Introduction, Vol. 214",Publisher 12,Ravi Abbott,2,NonFiction,322.66E,true,true
+978-1-4028-1412,"Astronomy — A Concise Introduction, Vol. 215",Publisher 9,Dina Liu,3,NonFiction,619.30M,false,true
+978-1-4028-1413,The Bright Road,Publisher 4,Felix Ortega,3,Fiction,,false,true
+978-1-4028-1414,"Linguistics — A Concise Introduction, Vol. 216",Publisher 14,Emilio Carvalho,5,NonFiction,868.74P,false,true
+978-1-4028-1415,Heavy Roads,Publisher 18,Tomas Morales,5,Fiction,,false,true
+978-1-4028-1416,The Pale Road,Publisher 22,Hugo Kowalski,3,Fiction,,false,true
+978-1-4028-1417,Dark Roads,Publisher 12,Lena Farah,6,Fiction,,false,true
+978-1-4028-1418,The Open Road,Publisher 38,Jada Young,3,Fiction,,false,false
+978-1-4028-1419,Closed Roads,Publisher 30,Isaac Uzun,4,Fiction,,false,true
+978-1-4028-1420,The Second Road,Publisher 12,Axel Harris,2,Fiction,,false,true
+978-1-4028-1421,First Roads,Publisher 3,Wes Liu,5,Fiction,,false,true
+978-1-4028-1422,"Anthropology — A Concise Introduction, Vol. 217",Publisher 10,Jordan Rahman,2,NonFiction,160.85N,true,false
+978-1-4028-1423,"Political Science — A Concise Introduction, Vol. 218",Publisher 30,Dante Okonkwo,3,NonFiction,970.17V,true,false
+978-1-4028-1424,"Neuroscience — A Concise Introduction, Vol. 219",Publisher 2,Naomi Jackson,1,NonFiction,683.83A,true,true
+978-1-4028-1425,The Lost Road,Publisher 3,Reid Vega,1,Fiction,,false,true
+978-1-4028-1426,"Geology — A Concise Introduction, Vol. 220",Publisher 24,Felix Xu,6,NonFiction,530.54B,true,true
+978-1-4028-1427,"Ethnography — A Concise Introduction, Vol. 221",Publisher 31,Felix Ortega,6,NonFiction,657.70A,false,true
+978-1-4028-1428,"Research Methods — A Concise Introduction, Vol. 222",Publisher 14,Greta Brooks,6,NonFiction,360.80L,false,true
+978-1-4028-1429,"Public Health — A Concise Introduction, Vol. 223",Publisher 30,Quinn Ito,3,NonFiction,290.90C,false,true
+978-1-4028-1430,"Urban Planning — A Concise Introduction, Vol. 224",Publisher 20,Emilio Farah,1,NonFiction,720.62O,false,false
+978-1-4028-1431,Found Roads,Publisher 14,Adrian Morales,3,Fiction,,false,true
+978-1-4028-1432,The Thin Road,Publisher 32,Ines Carvalho,2,Fiction,,false,false
+978-1-4028-1433,"Climate Policy — A Concise Introduction, Vol. 225",Publisher 30,Mina Olsen,3,NonFiction,569.34U,false,true
+978-1-4028-1434,Thick Roads,Publisher 17,Camila Edwards,3,Fiction,,false,false
+978-1-4028-1435,"Machine Learning — A Concise Introduction, Vol. 226",Publisher 25,Vera Petrov,5,NonFiction,650.92Q,false,true
+978-1-4028-1436,"Human Anatomy — A Concise Introduction, Vol. 227",Publisher 27,Anika Alvarez,3,NonFiction,452.28L,false,true
+978-1-4028-1437,The Silent Star,Publisher 38,Leila Okonkwo,5,Fiction,,false,true
+978-1-4028-1438,"Discrete Mathematics — A Concise Introduction, Vol. 228",Publisher 34,Paola Adams,6,NonFiction,127.68Z,false,true
+978-1-4028-1439,Broken Stars,Publisher 9,Iris Rossi,3,Fiction,,false,false
+978-1-4028-1440,"Modern Poetry — A Concise Introduction, Vol. 229",Publisher 11,Ezra Petrov,3,NonFiction,760.81K,false,false
+978-1-4028-1441,The Last Star,Publisher 9,Esme Brown,3,Fiction,,false,true
+978-1-4028-1442,Golden Stars,Publisher 20,Sofia Vargas,4,Fiction,,false,true
+978-1-4028-1443,"Film Studies — A Concise Introduction, Vol. 230",Publisher 33,Marcus Yamamoto,6,NonFiction,670.46R,false,true
+978-1-4028-1444,"Game Design — A Concise Introduction, Vol. 231",Publisher 24,Bruno Tanaka,4,NonFiction,694.54A,false,true
+978-1-4028-1445,"Calculus: Core Concepts, Vol. 232",Publisher 18,Ravi Cruz,6,NonFiction,919.45Q,false,true
+978-1-4028-1446,The Winter Star,Publisher 21,Greta Hansen,1,Fiction,,false,false
+978-1-4028-1447,Paper Stars,Publisher 3,Quinn Brown,1,Fiction,,false,false
+978-1-4028-1448,"Organic Chemistry: Core Concepts, Vol. 233",Publisher 13,Ravi Abbott,3,NonFiction,534.72G,false,true
+978-1-4028-1449,"U.S. History: Core Concepts, Vol. 234",Publisher 35,Kwame Harris,3,NonFiction,483.50U,false,false
+978-1-4028-1450,"World Mythology: Core Concepts, Vol. 235",Publisher 31,Aisha Foster,6,NonFiction,211.10C,false,false
+978-1-4028-1451,The Glass Star,Publisher 32,Freya Martin,2,Fiction,,false,false
+978-1-4028-1452,Hidden Stars,Publisher 16,Finn Hansen,5,Fiction,,false,false
+978-1-4028-1453,The Blue Star,Publisher 20,Caleb Lindstrom,2,Fiction,,false,false
+978-1-4028-1454,Wild Stars,Publisher 11,Kira Brooks,3,Fiction,,false,false
+978-1-4028-1455,"Data Structures: Core Concepts, Vol. 236",Publisher 34,Tariq Mensah,6,NonFiction,331.66V,false,true
+978-1-4028-1456,The Forgotten Star,Publisher 29,Sofia Edwards,2,Fiction,,false,false
+978-1-4028-1457,"Cell Biology: Core Concepts, Vol. 237",Publisher 31,Rosa Vaughn,2,NonFiction,125.81O,false,true
+978-1-4028-1458,Electric Stars,Publisher 18,Kai Jensen,6,Fiction,,false,true
+978-1-4028-1459,The Midnight Star,Publisher 21,Greta Brooks,2,Fiction,,false,true
+978-1-4028-1460,Stone Stars,Publisher 27,Ethan Weiss,2,Fiction,,false,true
+978-1-4028-1461,"Macroeconomics: Core Concepts, Vol. 238",Publisher 33,Jonah Dubois,6,NonFiction,418.52F,false,false
+978-1-4028-1462,The River Star,Publisher 10,Noah Singh,3,Fiction,,false,false
+978-1-4028-1463,Crimson Stars,Publisher 27,Ren Kim,1,Fiction,,false,true
+978-1-4028-1464,"Environmental Science: Core Concepts, Vol. 239",Publisher 28,Sofia Vargas,4,NonFiction,561.66M,false,true
+978-1-4028-1465,The Distant Star,Publisher 13,Mina Reyes,5,Fiction,,false,false
+978-1-4028-1466,Small Stars,Publisher 25,Mina Harris,1,Fiction,,false,false
+978-1-4028-1467,"Linear Algebra: Core Concepts, Vol. 240",Publisher 26,Lucas Murphy,2,NonFiction,666.98G,false,true
+978-1-4028-1468,"Psychology: Core Concepts, Vol. 241",Publisher 31,Silas Okonkwo,2,NonFiction,463.51A,false,true
+978-1-4028-1469,The Bright Star,Publisher 34,Alma Okafor,6,Fiction,,false,true
+978-1-4028-1470,Heavy Stars,Publisher 14,Reid Reyes,6,Fiction,,false,true
+978-1-4028-1471,The Pale Star,Publisher 11,Lila Petrov,6,Fiction,,false,true
+978-1-4028-1472,Dark Stars,Publisher 21,Paola Yilmaz,4,Fiction,,false,false
+978-1-4028-1473,The Open Star,Publisher 4,Tomas Morales,6,Fiction,,false,true
+978-1-4028-1474,"Sociology: Core Concepts, Vol. 242",Publisher 10,Theo Berg,3,NonFiction,263.80T,false,false
+978-1-4028-1475,Closed Stars,Publisher 28,Ben Khan,1,Fiction,,false,false
+978-1-4028-1476,The Second Star,Publisher 11,Nina Hansen,4,Fiction,,false,true
+978-1-4028-1477,First Stars,Publisher 30,Rowan Adams,6,Fiction,,false,true
+978-1-4028-1478,The Lost Star,Publisher 33,Ravi Morales,5,Fiction,,false,true
+978-1-4028-1479,"Art History: Core Concepts, Vol. 243",Publisher 15,Ethan Farah,4,NonFiction,817.57S,false,false
+978-1-4028-1480,"Music Theory: Core Concepts, Vol. 244",Publisher 11,Lena Brown,2,NonFiction,887.75A,true,true
+978-1-4028-1481,"Statistics: Core Concepts, Vol. 245",Publisher 23,Vera Chang,2,NonFiction,435.23W,false,false
+978-1-4028-1482,"Ethics: Core Concepts, Vol. 246",Publisher 35,Jada Okonkwo,4,NonFiction,314.42K,false,true
+978-1-4028-1483,Found Stars,Publisher 32,Ravi Price,1,Fiction,,false,true
+978-1-4028-1484,The Thin Star,Publisher 30,Leo Brown,6,Fiction,,false,true
+978-1-4028-1485,"Physics: Core Concepts, Vol. 247",Publisher 34,Sofia Edwards,4,NonFiction,680.66I,false,false
+978-1-4028-1486,"Astronomy: Core Concepts, Vol. 248",Publisher 13,Naomi Cruz,5,NonFiction,356.95M,false,false
+978-1-4028-1487,Thick Stars,Publisher 31,Ravi Morales,4,Fiction,,false,false
+978-1-4028-1488,"Linguistics: Core Concepts, Vol. 249",Publisher 21,Dante Young,3,NonFiction,834.65T,false,false
+978-1-4028-1489,"Anthropology: Core Concepts, Vol. 250",Publisher 26,Ezra Foster,3,NonFiction,299.59I,false,false
+978-1-4028-1490,"Political Science: Core Concepts, Vol. 251",Publisher 38,Tariq Mensah,2,NonFiction,406.57L,false,false
+978-1-4028-1491,"Neuroscience: Core Concepts, Vol. 252",Publisher 28,Ravi Olsen,5,NonFiction,895.33Q,false,true
+978-1-4028-1492,"Geology: Core Concepts, Vol. 253",Publisher 21,Willa Liu,4,NonFiction,227.54V,false,true
+978-1-4028-1493,The Silent Wave,Publisher 15,Vera Underwood,5,Fiction,,false,false
+978-1-4028-1494,Broken Waves,Publisher 7,Dina Liu,6,Fiction,,false,false
+978-1-4028-1495,The Last Wave,Publisher 38,Talia Ahmed,2,Fiction,,false,true
+978-1-4028-1496,Golden Waves,Publisher 19,Quinn Nguyen,5,Fiction,,false,true
+978-1-4028-1497,"Ethnography: Core Concepts, Vol. 254",Publisher 19,Kai Jensen,2,NonFiction,398.30U,true,true
+978-1-4028-1498,"Research Methods: Core Concepts, Vol. 255",Publisher 13,Sienna Green,5,NonFiction,118.93H,false,true
+978-1-4028-1499,The Winter Wave,Publisher 11,Ren Yamamoto,3,Fiction,,false,true

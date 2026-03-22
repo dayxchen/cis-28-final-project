@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Queries · De Anza LIS{% endblock %}
+{% block body %}
+<h1>Queries</h1>
+<p class="lede">Look up a borrower by library card, a copy by barcode, or a title aggregate by ISBN.</p>
+<ul class="plain-list query-links">
+  <li><a class="btn" href="{{ url_for('query_borrower') }}">Borrower (card barcode)</a></li>
+  <li><a class="btn" href="{{ url_for('query_copy') }}">Copy (copy barcode)</a></li>
+  <li><a class="btn" href="{{ url_for('query_book') }}">Book (ISBN)</a></li>
+</ul>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Staff sign-in · De Anza LIS{% endblock %}
+{% block body %}
+<h1>Staff desk</h1>
+<p class="lede">Enter the staff password to open the full librarian console. Set <code>LIBRARY_ADMIN_PASSWORD</code> in the environment for production; otherwise the app uses a built-in default for local development.</p>
+
+<form method="post" action="{{ url_for('admin_login') }}" class="card stack" style="max-width: 22rem;">
+  <label>Password <input type="password" name="password" autocomplete="current-password" required></label>
+  <button type="submit" class="btn">Sign in</button>
+</form>
+<p class="mt"><a href="{{ url_for('home') }}">← Back to home</a></p>
+{% endblock %}

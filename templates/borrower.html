@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}Patron portal · De Anza LIS{% endblock %}
+{% block body %}
+<h1>Patron portal</h1>
+
+{% if not profile %}
+<p class="lede">Enter the barcode on your library card to view your account and use self-service checkout, return, and reservations.</p>
+<form method="post" action="{{ url_for('borrower_login') }}" class="card stack" style="max-width: 22rem;">
+  <label>Card barcode <input name="card_barcode" placeholder="CARD-00001" required autocomplete="username"></label>
+  <button type="submit" class="btn">Sign in</button>
+</form>
+<p class="mt"><a href="{{ url_for('home') }}">← Back to home</a> · <a href="{{ url_for('query_book') }}">Look up a book by ISBN</a></p>
+{% else %}
+
+<form class="inline" method="post" action="{{ url_for('borrower_logout') }}">
+  <button type="submit" class="btn secondary">Sign out</button>
+</form>
+
+<article class="card mt">
+  <h2>{{ profile.name }} <span class="tag">{{ profile.borrower_type }}</span></h2>
+  <p class="meta"><code>{{ profile.borrower_id }}</code> · {{ profile.phone }}</p>
+  <p class="meta">Card <code>{{ profile.card_barcode }}</code> · expires {{ profile.card_expiration }}
+    {% if profile.card_expired %}<strong class="warn">(expired)</strong>{% endif %}</p>
+  <p class="meta">Fine balance: <strong>${{ '%.2f'|format(profile.fine_balance) }}</strong></p>
+
+  <h3>Checked out</h3>
+  {% if profile.checked_out %}
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Copy</th><th>Status</th><th>Title</th><th>Out</th><th>Due</th><th>Owed</th></tr></thead>
+        <tbody>
+          {% for c in profile.checked_out %}
+          <tr>
+            <td><code>{{ c.barcode }}</code></td>
+            <td>{{ c.status }}</td>
+            <td>{{ c.title }}</td>
+            <td>{{ c.date_checked_out }}</td>
+            <td>{{ c.date_due_back }}</td>
+            <td>${{ '%.2f'|format(c.amount_owed) }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p class="hint">Nothing checked out.</p>
+  {% endif %}
+
+  <h3>Reservations</h3>
+  {% if profile.reservations %}
+    <ul class="plain-list">
+      {% for r in profile.reservations %}
+        <li><code>{{ r.reservation_id }}</code> · <em>{{ r.title }}</em> — {{ r.author }} · reserved {{ r.date_reserved }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="hint">No active reservations.</p>
+  {% endif %}
+</article>
+
+<section class="grid-forms">
+  <article class="card">
+    <h2>Check out a copy</h2>
+    <p class="hint">Use the copy barcode (on the book). Holds: only you can check out a copy on hold for you.</p>
+    <form method="post" action="{{ url_for('borrower_checkout') }}" class="stack">
+      <label>Copy barcode <input name="copy_barcode" placeholder="COPY-000001" required></label>
+      <button type="submit" class="btn">Check out</button>
+    </form>
+  </article>
+  <article class="card">
+    <h2>Return a copy</h2>
+    <p class="hint">Only copies currently on your card can be returned here.</p>
+    <form method="post" action="{{ url_for('borrower_return') }}" class="stack">
+      <label>Copy barcode <input name="copy_barcode" required></label>
+      <button type="submit" class="btn secondary">Return</button>
+    </form>
+  </article>
+  <article class="card">
+    <h2>Reserve a book</h2>
+    <p class="hint">Reservations apply when no copy of that ISBN is on the shelf. Rules (fines, limits, type) still apply.</p>
+    <form method="post" action="{{ url_for('borrower_reserve') }}" class="stack">
+      <label>ISBN <input name="isbn" placeholder="978-0-..." required></label>
+      <button type="submit" class="btn">Place reservation</button>
+    </form>
+  </article>
+</section>
+
+<p class="mt"><a href="{{ url_for('query_book') }}">Look up a book by ISBN</a> · <a href="{{ url_for('home') }}">Home</a></p>
+{% endif %}
+{% endblock %}
