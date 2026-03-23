@@ -1,0 +1,1 @@
+reservation_id,room_id,borrower_id,booking_date,start_hour,state,num_attendees,confirm_code

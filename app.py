@@ -3,12 +3,14 @@ from __future__ import annotations
 import copy
 import os
 import uuid
+from datetime import datetime
 from pathlib import Path
 
 from flask import Flask, flash, redirect, render_template, request, session, url_for
 
 from library.loader import load_library_from_csv
 from library import service as svc
+from library.models import RoomReservationState
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "lis-dev-secret-change-for-production")
@@ -78,7 +80,14 @@ def home():
 def admin_desk():
     if not session.get("lis_admin"):
         return render_template("admin/login.html")
-    return render_template("admin/desk.html")
+    lib = get_library()
+    study_rooms = sorted(lib.study_rooms.values(), key=lambda x: x.room_id)
+    room_reservations_staff = svc.staff_room_reservations_list(lib)
+    return render_template(
+        "admin/desk.html",
+        study_rooms=study_rooms,
+        room_reservations_staff=room_reservations_staff,
+    )
 
 
 @app.post("/admin/login")
@@ -337,6 +346,157 @@ def query_book():
         data=data,
         sim_date=get_library().simulation_date.isoformat(),
     )
+
+
+def _parse_iso_date(s: str):
+    return datetime.strptime((s or "").strip(), "%Y-%m-%d").date()
+
+
+@app.get("/study-rooms")
+def study_rooms():
+    lib = get_library()
+    raw = (request.args.get("date") or "").strip()
+    try:
+        booking_date = _parse_iso_date(raw) if raw else lib.simulation_date
+    except ValueError:
+        flash("Invalid date — use YYYY-MM-DD.", "err")
+        booking_date = lib.simulation_date
+
+    schedule = svc.study_room_schedule_for_date(lib, booking_date)
+    slot_labels = {h: svc.format_study_slot_label(h) for h in schedule["slots"]}
+    rooms_sorted = sorted(lib.study_rooms.values(), key=lambda x: x.room_id)
+
+    card = (session.get("lis_borrower_card") or "").strip()
+    b = svc.find_borrower_by_card(lib, card) if card else None
+    my_rooms = svc.borrower_upcoming_room_reservations(lib, b.borrower_id) if b else []
+    room_oos_notifications = svc.borrower_out_of_service_room_notifications(lib, b.borrower_id) if b else []
+
+    edit_rr = None
+    edit_id = (request.args.get("edit") or "").strip()
+    if b and edit_id:
+        for r in lib.room_reservations:
+            if (
+                r.reservation_id == edit_id
+                and r.borrower_id == b.borrower_id
+                and r.state == RoomReservationState.CONFIRMED
+            ):
+                edit_rr = r
+                break
+
+    return render_template(
+        "study_rooms.html",
+        schedule=schedule,
+        slot_labels=slot_labels,
+        rooms=rooms_sorted,
+        my_room_reservations=my_rooms,
+        room_oos_notifications=room_oos_notifications,
+        edit_reservation=edit_rr,
+        sim_date=lib.simulation_date.isoformat(),
+    )
+
+
+@app.post("/study-rooms/reserve")
+def study_rooms_reserve():
+    card, redir = _borrower_card_or_redirect()
+    if redir:
+        return redir
+    try:
+        booking_date = _parse_iso_date(_form_str("booking_date"))
+        start_hour = int(_form_str("start_hour"))
+        num_attendees = int(_form_str("num_attendees") or "1")
+    except (ValueError, TypeError):
+        flash("Invalid date, time, or attendee count.", "err")
+        return redirect(url_for("study_rooms"))
+    ok, msg = svc.reserve_study_room(
+        get_library(),
+        card,
+        _form_str("room_id"),
+        booking_date,
+        start_hour,
+        num_attendees,
+    )
+    flash(msg, "ok" if ok else "err")
+    return redirect(url_for("study_rooms", date=booking_date.isoformat()))
+
+
+@app.post("/study-rooms/modify")
+def study_rooms_modify():
+    card, redir = _borrower_card_or_redirect()
+    if redir:
+        return redir
+    try:
+        new_date = _parse_iso_date(_form_str("booking_date"))
+        start_hour = int(_form_str("start_hour"))
+        num_attendees = int(_form_str("num_attendees") or "1")
+    except (ValueError, TypeError):
+        flash("Invalid date, time, or attendee count.", "err")
+        return redirect(url_for("study_rooms"))
+    ok, msg = svc.modify_study_room_reservation(
+        get_library(),
+        card,
+        _form_str("reservation_id"),
+        _form_str("room_id"),
+        new_date,
+        start_hour,
+        num_attendees,
+    )
+    flash(msg, "ok" if ok else "err")
+    return redirect(url_for("study_rooms", date=new_date.isoformat()))
+
+
+@app.post("/study-rooms/cancel")
+def study_rooms_cancel():
+    card, redir = _borrower_card_or_redirect()
+    if redir:
+        return redir
+    ok, msg = svc.cancel_study_room_reservation(get_library(), card, _form_str("reservation_id"))
+    flash(msg, "ok" if ok else "err")
+    return redirect(url_for("study_rooms"))
+
+
+@app.post("/admin/study-room/toggle")
+def admin_study_room_toggle():
+    redir = _require_admin()
+    if redir:
+        return redir
+    is_active = _form_str("is_active") == "1"
+    ok, msg = svc.set_study_room_active(get_library(), _form_str("room_id"), is_active)
+    flash(msg, "ok" if ok else "err")
+    return redirect(url_for("admin_desk"))
+
+
+@app.post("/admin/study-room/mark-oos")
+def admin_study_room_mark_oos():
+    redir = _require_admin()
+    if redir:
+        return redir
+    ok, msg = svc.mark_room_reservation_out_of_service(get_library(), _form_str("reservation_id"))
+    flash(msg, "ok" if ok else "err")
+    return redirect(url_for("admin_desk"))
+
+
+@app.post("/admin/study-room/reserve")
+def admin_study_room_reserve():
+    redir = _require_admin()
+    if redir:
+        return redir
+    try:
+        booking_date = _parse_iso_date(_form_str("booking_date"))
+        start_hour = int(_form_str("start_hour"))
+        num_attendees = int(_form_str("num_attendees") or "1")
+    except (ValueError, TypeError):
+        flash("Invalid date, time, or attendee count.", "err")
+        return redirect(url_for("admin_desk"))
+    ok, msg = svc.reserve_study_room(
+        get_library(),
+        _form_str("card_barcode"),
+        _form_str("room_id"),
+        booking_date,
+        start_hour,
+        num_attendees,
+    )
+    flash(msg, "ok" if ok else "err")
+    return redirect(url_for("admin_desk"))
 
 
 if __name__ == "__main__":

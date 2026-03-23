@@ -82,7 +82,78 @@
   </article>
 
   <article class="card">
-    <h2>6 · Delete borrower</h2>
+    <h2>6 · Study rooms</h2>
+    <p class="hint">Create reservations for borrowers, mark rooms unavailable for maintenance, or mark a confirmed booking out of service.</p>
+    <h3>Reserve for borrower</h3>
+    <form method="post" action="{{ url_for('admin_study_room_reserve') }}" class="stack">
+      <label>Borrower card barcode <input name="card_barcode" placeholder="CARD-00001" required></label>
+      <label>Room ID <input name="room_id" placeholder="SR-101" required></label>
+      <label>Date <input type="date" name="booking_date" value="{{ sim_date }}" required></label>
+      <label>Start hour (24h) <input type="number" name="start_hour" min="9" max="18" value="9" required></label>
+      <label>Attendees <input type="number" name="num_attendees" min="1" value="1" required></label>
+      <button type="submit" class="btn">Reserve room for borrower</button>
+    </form>
+    <h3>Rooms</h3>
+    <ul class="plain-list">
+      {% for rm in study_rooms %}
+      <li>
+        <strong>{{ rm.name }}</strong> <code>{{ rm.room_id }}</code>
+        {% if rm.is_active %}<span class="status-pill">Active</span>{% else %}<span class="status-pill" style="background:#fde2e4;">Out of service</span>{% endif %}
+        <form method="post" action="{{ url_for('admin_study_room_toggle') }}" class="inline" style="display:inline;">
+          <input type="hidden" name="room_id" value="{{ rm.room_id }}">
+          {% if rm.is_active %}
+          <input type="hidden" name="is_active" value="0">
+          <button type="submit" class="btn secondary small-btn">Take room out of service</button>
+          {% else %}
+          <input type="hidden" name="is_active" value="1">
+          <button type="submit" class="btn small-btn">Mark room available</button>
+          {% endif %}
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+    <h3>Reservations</h3>
+    {% if room_reservations_staff %}
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>State</th>
+            <th>Room</th>
+            <th>When</th>
+            <th>Borrower</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in room_reservations_staff %}
+          <tr>
+            <td><code>{{ r.reservation_id }}</code></td>
+            <td>{{ r.state }}</td>
+            <td>{{ r.room_name }}</td>
+            <td>{{ r.booking_date }} {{ r.slot_label }}</td>
+            <td>{{ r.borrower_name }} <span class="small meta">({{ r.borrower_id }})</span></td>
+            <td>
+              {% if r.state == 'CONFIRMED' %}
+              <form method="post" action="{{ url_for('admin_study_room_mark_oos') }}" style="display:inline;" onsubmit="return confirm('Mark this reservation out of service?');">
+                <input type="hidden" name="reservation_id" value="{{ r.reservation_id }}">
+                <button type="submit" class="btn secondary small-btn">Mark OOS</button>
+              </form>
+              {% else %}—{% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <p class="hint">No study room reservations in this session.</p>
+    {% endif %}
+  </article>
+
+  <article class="card">
+    <h2>7 · Delete borrower</h2>
     <p class="hint">Only if no checkouts and no active hold on a copy.</p>
     <form method="post" action="{{ url_for('tx_delete_borrower') }}" class="stack">
       <label>Borrower ID <input name="borrower_id" placeholder="B-042" required></label>

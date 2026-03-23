@@ -166,3 +166,12 @@ th { background: #f0ebe0; font-weight: 600; }
 .query-links .btn { width: 100%; }
 code { font-size: 0.88em; background: #f0ebe0; padding: 0.1rem 0.35rem; border-radius: 3px; }
 .warn { color: var(--warn); }
+
+.schedule-grid .slot-col { font-size: 0.72rem; max-width: 4.75rem; text-align: center; vertical-align: bottom; line-height: 1.2; }
+.schedule-grid .slot-cell { text-align: center; font-size: 0.78rem; padding: 0.35rem 0.25rem; }
+.schedule-grid .slot-free { background: #d8f3dc; }
+.schedule-grid .slot-taken { background: #ffe8d6; }
+.schedule-grid .slot-inactive { background: #e8e6e1; color: var(--muted); }
+.schedule-grid .room-cell { min-width: 11rem; vertical-align: top; }
+.small-btn { font-size: 0.8125rem; padding: 0.35rem 0.65rem; }
+.nowrap { white-space: nowrap; }

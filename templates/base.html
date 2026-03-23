@@ -15,11 +15,12 @@
       <a class="brand" href="{{ url_for('home') }}">De Anza Library Inventory</a>
       <nav class="nav">
         <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('borrower_portal') }}">Patron</a>
+        <a href="{{ url_for('borrower_portal') }}">Borrower</a>
         <a href="{{ url_for('admin_desk') }}">Staff</a>
         <a href="{{ url_for('reports_overdue') }}">Overdue</a>
         <a href="{{ url_for('reports_inventory') }}">Inventory</a>
         <a href="{{ url_for('queries_hub') }}">Queries</a>
+        <a href="{{ url_for('study_rooms') }}">Study rooms</a>
       </nav>
     </div>
   </header>
@@ -37,7 +38,6 @@
   </main>
   <footer class="site-footer wrap">
     <p>Simulation date: <strong>{% if sim_date is defined %}{{ sim_date }}{% else %}—{% endif %}</strong>. Changes apply only to this browser session.</p>
-    <p class="footer-credit">Made with Claude</p>
   </footer>
 </body>
 </html>

@@ -6,9 +6,9 @@
 
 <section class="portal-pick grid-forms">
   <article class="card portal-card">
-    <h2>Patron</h2>
-    <p class="hint">Sign in with your library card barcode to see your account, check out or return copies, and place reservations.</p>
-    <a class="btn" href="{{ url_for('borrower_portal') }}">Patron portal</a>
+    <h2>Borrower</h2>
+    <p class="hint">Sign in with your library card barcode to see your account, place reservations, and manage study room bookings.</p>
+    <a class="btn" href="{{ url_for('borrower_portal') }}">Borrower portal</a>
   </article>
   <article class="card portal-card">
     <h2>Staff</h2>
@@ -25,6 +25,7 @@
     <a class="btn secondary" href="{{ url_for('reports_inventory') }}">Inventory report</a>
     <a class="btn secondary" href="{{ url_for('queries_hub') }}">Queries</a>
     <a class="btn secondary" href="{{ url_for('query_book') }}">Look up book (ISBN)</a>
+    <a class="btn secondary" href="{{ url_for('study_rooms') }}">Study room schedule</a>
   </p>
 </section>
 {% endblock %}

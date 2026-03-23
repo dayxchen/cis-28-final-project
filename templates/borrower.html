@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% block title %}Patron portal · De Anza LIS{% endblock %}
+{% block title %}Borrower portal · De Anza LIS{% endblock %}
 {% block body %}
-<h1>Patron portal</h1>
+<h1>Borrower portal</h1>
 
 {% if not profile %}
-<p class="lede">Enter the barcode on your library card to view your account and use self-service checkout, return, and reservations.</p>
+<p class="lede">Enter the barcode on your library card to view your account, place reservations, and manage study room bookings.</p>
 <form method="post" action="{{ url_for('borrower_login') }}" class="card stack" style="max-width: 22rem;">
   <label>Card barcode <input name="card_barcode" placeholder="CARD-00001" required autocomplete="username"></label>
   <button type="submit" class="btn">Sign in</button>
@@ -56,24 +56,34 @@
   {% else %}
     <p class="hint">No active reservations.</p>
   {% endif %}
+
+  <h3>Study room bookings</h3>
+  {% if profile.room_oos_notifications %}
+    <div class="card" style="background:#fff7f7; border-color:#f3b5b5;">
+      <strong>Study room service notices</strong>
+      <ul class="plain-list">
+        {% for n in profile.room_oos_notifications %}
+          <li><code>{{ n.reservation_id }}</code> · {{ n.room_name }} — {{ n.booking_date }} {{ n.slot_label }} was canceled because the room is out of service.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  {% if profile.room_reservations %}
+    <ul class="plain-list">
+      {% for r in profile.room_reservations %}
+        <li><code>{{ r.reservation_id }}</code> · {{ r.room_name }} — {{ r.booking_date }} {{ r.slot_label }} · code <code>{{ r.confirm_code }}</code></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="hint">No upcoming study room reservations. <a href="{{ url_for('study_rooms') }}">View schedule</a></p>
+  {% endif %}
 </article>
 
 <section class="grid-forms">
   <article class="card">
-    <h2>Check out a copy</h2>
-    <p class="hint">Use the copy barcode (on the book). Holds: only you can check out a copy on hold for you.</p>
-    <form method="post" action="{{ url_for('borrower_checkout') }}" class="stack">
-      <label>Copy barcode <input name="copy_barcode" placeholder="COPY-000001" required></label>
-      <button type="submit" class="btn">Check out</button>
-    </form>
-  </article>
-  <article class="card">
-    <h2>Return a copy</h2>
-    <p class="hint">Only copies currently on your card can be returned here.</p>
-    <form method="post" action="{{ url_for('borrower_return') }}" class="stack">
-      <label>Copy barcode <input name="copy_barcode" required></label>
-      <button type="submit" class="btn secondary">Return</button>
-    </form>
+    <h2>Study room schedule</h2>
+    <p class="hint">View availability and reserve, change, or cancel one-hour slots (9 AM–7 PM).</p>
+    <a class="btn" href="{{ url_for('study_rooms') }}">Open study room schedule</a>
   </article>
   <article class="card">
     <h2>Reserve a book</h2>

@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% block title %}Study rooms · De Anza LIS{% endblock %}
+{% block body %}
+<h1>Study room reservations</h1>
+<p class="lede">The library is open <strong>9:00 AM – 7:00 PM</strong>. Each booking is <strong>one hour</strong>. Anyone can view availability; <strong>sign in on the Borrower portal</strong> with your card to reserve, change, or cancel.</p>
+
+<form method="get" action="{{ url_for('study_rooms') }}" class="inline-form card" style="margin-bottom:1.25rem;">
+  <label>Schedule date
+    <input type="date" name="date" value="{{ schedule.booking_date.isoformat() }}" required>
+  </label>
+  <button type="submit" class="btn secondary">Show schedule</button>
+</form>
+
+<div class="table-wrap wide">
+  <table class="schedule-grid">
+    <thead>
+      <tr>
+        <th scope="col">Room</th>
+        {% for h in schedule.slots %}
+        <th scope="col" class="slot-col"><span class="small">{{ slot_labels[h] }}</span></th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in schedule.rows %}
+      <tr>
+        <th scope="row" class="room-cell">
+          <strong>{{ row.room.name }}</strong>
+          <span class="small meta">{{ row.room.location }} · cap {{ row.room.capacity }}</span>
+          {% if not row.room.is_active %}<span class="status-pill" style="background:#fde2e4;">Out of service</span>{% endif %}
+        </th>
+        {% for cell in row.slots %}
+        <td class="slot-cell {% if cell.kind == 'free' %}slot-free{% elif cell.kind == 'inactive' %}slot-inactive{% else %}slot-taken{% endif %}">
+          {% if cell.kind == 'inactive' %}—{% elif cell.kind == 'free' %}Free{% elif cell.state == 'OUT_OF_SERVICE' %}OOS{% else %}Booked{% endif %}
+        </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<p class="hint">“Booked” means the slot is held. “OOS” is a staff-marked out-of-service hold. “—” means the whole room is unavailable.</p>
+
+{% if borrower_logged_in %}
+{% if room_oos_notifications %}
+<div class="card" style="margin-top:1rem; background:#fff7f7; border-color:#f3b5b5;">
+  <strong>Service notices</strong>
+  <ul class="plain-list">
+    {% for n in room_oos_notifications %}
+    <li><code>{{ n.reservation_id }}</code> · {{ n.room_name }} — {{ n.booking_date }} {{ n.slot_label }} was canceled because the room is out of service.</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+<section class="grid-forms" style="margin-top:2rem;">
+  <article class="card">
+    <h2>Reserve a slot</h2>
+    {% if edit_reservation %}
+    <p class="hint">You are editing <code>{{ edit_reservation.reservation_id }}</code>. Submit the form below to save changes, or <a href="{{ url_for('study_rooms', date=schedule.booking_date.isoformat()) }}">cancel editing</a>.</p>
+    {% else %}
+    <p class="hint">Choose a room, date, and start time (1-hour block). Confirmation code is shown after you book.</p>
+    {% endif %}
+    {% if edit_reservation %}
+    <form method="post" action="{{ url_for('study_rooms_modify') }}" class="stack">
+      <input type="hidden" name="reservation_id" value="{{ edit_reservation.reservation_id }}">
+      <label>Room
+        <select name="room_id" required>
+          {% for rm in rooms %}
+          <option value="{{ rm.room_id }}" {% if rm.room_id == edit_reservation.room_id %}selected{% endif %} {% if not rm.is_active %}disabled{% endif %}>{{ rm.name }} ({{ rm.room_id }}){% if not rm.is_active %} — unavailable{% endif %}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Date <input type="date" name="booking_date" value="{{ edit_reservation.booking_date.isoformat() }}" required></label>
+      <label>Start time
+        <select name="start_hour" required>
+          {% for h in schedule.slots %}
+          <option value="{{ h }}" {% if h == edit_reservation.start_hour %}selected{% endif %}>{{ slot_labels[h] }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Attendees <input type="number" name="num_attendees" min="1" value="{{ edit_reservation.num_attendees }}" required></label>
+      <button type="submit" class="btn">Save changes</button>
+    </form>
+    {% else %}
+    <form method="post" action="{{ url_for('study_rooms_reserve') }}" class="stack">
+      <label>Room
+        <select name="room_id" required>
+          <option value="" disabled selected>Choose a room…</option>
+          {% for rm in rooms %}
+          <option value="{{ rm.room_id }}" {% if not rm.is_active %}disabled{% endif %}>{{ rm.name }} ({{ rm.room_id }}){% if not rm.is_active %} — unavailable{% endif %}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Date <input type="date" name="booking_date" value="{{ schedule.booking_date.isoformat() }}" required></label>
+      <label>Start time
+        <select name="start_hour" required>
+          {% for h in schedule.slots %}
+          <option value="{{ h }}">{{ slot_labels[h] }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Attendees <input type="number" name="num_attendees" min="1" value="1" required></label>
+      <button type="submit" class="btn">Reserve</button>
+    </form>
+    {% endif %}
+  </article>
+
+  <article class="card">
+    <h2>Your upcoming room bookings</h2>
+    {% if my_room_reservations %}
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Room</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Code</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in my_room_reservations %}
+          <tr>
+            <td><code>{{ r.reservation_id }}</code></td>
+            <td>{{ r.room_name }}</td>
+            <td>{{ r.booking_date }}</td>
+            <td>{{ r.slot_label }}</td>
+            <td><code>{{ r.confirm_code }}</code></td>
+            <td class="nowrap">
+              <a class="btn secondary small-btn" href="{{ url_for('study_rooms', date=r.booking_date, edit=r.reservation_id) }}">Modify</a>
+              <form method="post" action="{{ url_for('study_rooms_cancel') }}" class="inline-form" style="display:inline;" onsubmit="return confirm('Cancel this reservation?');">
+                <input type="hidden" name="reservation_id" value="{{ r.reservation_id }}">
+                <button type="submit" class="btn secondary small-btn">Cancel</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <p class="hint">No upcoming study room reservations.</p>
+    {% endif %}
+  </article>
+</section>
+{% else %}
+<p class="card" style="padding:1rem 1.25rem;"><a class="btn" href="{{ url_for('borrower_portal') }}">Sign in on the Borrower portal</a> with your library card to reserve or manage study rooms.</p>
+{% endif %}
+
+<p class="mt"><a href="{{ url_for('home') }}">Home</a> · <a href="{{ url_for('borrower_portal') }}">Borrower portal</a></p>
+{% endblock %}

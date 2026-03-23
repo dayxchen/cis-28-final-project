@@ -5,6 +5,15 @@ from datetime import date
 from typing import Optional
 
 
+class RoomReservationState:
+    """Lifecycle for study-room bookings (see event state diagram)."""
+
+    CONFIRMED = "CONFIRMED"
+    CANCELLED = "CANCELLED"
+    COMPLETED = "COMPLETED"
+    OUT_OF_SERVICE = "OUT_OF_SERVICE"
+
+
 class CopyStatus:
     ON_SHELF = "ON_SHELF"
     CHECKED_OUT = "CHECKED_OUT"
@@ -62,6 +71,32 @@ class Reservation:
 
 
 @dataclass
+class StudyRoom:
+    """Scheduled resource: study room (1-hour slots, 9am–7pm)."""
+
+    room_id: str
+    name: str
+    capacity: int
+    location: str
+    equipment: str
+    is_active: bool
+
+
+@dataclass
+class RoomReservation:
+    """Scheduled reservation for a study room (time window stored as date + start hour)."""
+
+    reservation_id: str
+    room_id: str
+    borrower_id: str
+    booking_date: date
+    start_hour: int  # 9–18 inclusive; reservation runs start_hour:00–(start_hour+1):00, closing at 19:00
+    state: str
+    num_attendees: int
+    confirm_code: str
+
+
+@dataclass
 class Library:
     """
     Top-level aggregate: owns books, copies, borrowers (Student/Teacher),
@@ -72,8 +107,11 @@ class Library:
     borrowers: dict[str, Borrower] = field(default_factory=dict)
     copies: dict[str, Copy] = field(default_factory=dict)
     reservations: list[Reservation] = field(default_factory=list)
+    study_rooms: dict[str, StudyRoom] = field(default_factory=dict)
+    room_reservations: list[RoomReservation] = field(default_factory=list)
     simulation_date: date = field(default_factory=date.today)
     _next_borrower_num: int = 101
     _next_copy_num: int = 2001
     _next_card_num: int = 1
     _next_res_num: int = 1
+    _next_room_res_num: int = 1

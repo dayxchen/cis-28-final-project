@@ -1,0 +1,6 @@
+room_id,name,capacity,location,equipment,is_active
+ROOM-01,Collaboration Pod A,4,2nd Floor · East,Whiteboard; Wi-Fi; Power outlets,true
+ROOM-02,Collaboration Pod B,4,2nd Floor · East,Whiteboard; Wi-Fi; Power outlets,true
+ROOM-03,Quiet Study Room 1,2,2nd Floor · West,Desk lamp; Wi-Fi,true
+ROOM-04,Quiet Study Room 2,2,2nd Floor · West,Desk lamp; Wi-Fi,true
+ROOM-05,Presentation Room,8,3rd Floor,Projector; Whiteboard; Wi-Fi; Power outlets,true

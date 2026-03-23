@@ -5,7 +5,16 @@ import re
 from datetime import date, datetime
 from pathlib import Path
 
-from .models import Book, Borrower, Copy, CopyStatus, Library, Reservation
+from .models import (
+    Book,
+    Borrower,
+    Copy,
+    CopyStatus,
+    Library,
+    Reservation,
+    RoomReservation,
+    StudyRoom,
+)
 
 
 def _parse_date(s: str) -> date:
@@ -115,15 +124,58 @@ def load_library_from_csv(data_dir: Path) -> Library:
                 )
             )
 
+    study_rooms: dict[str, StudyRoom] = {}
+    with open(data_dir / "study_rooms.csv", newline="", encoding="utf-8") as f:
+        r = csv.DictReader(f)
+        for row in r:
+            rid = row["room_id"].strip()
+            study_rooms[rid] = StudyRoom(
+                room_id=rid,
+                name=row["name"].strip(),
+                capacity=_parse_int(row["capacity"]),
+                location=row["location"].strip(),
+                equipment=(row.get("equipment") or "").strip(),
+                is_active=_parse_bool(row.get("is_active") or "true"),
+            )
+
+    room_reservations: list[RoomReservation] = []
+    max_rr = 0
+    rr_path = data_dir / "room_reservations.csv"
+    if rr_path.exists():
+        with open(rr_path, newline="", encoding="utf-8") as f:
+            r = csv.DictReader(f)
+            for row in r:
+                if not (row.get("reservation_id") or "").strip():
+                    continue
+                rid = row["reservation_id"].strip()
+                m = re.match(r"RR-(\d+)", rid)
+                if m:
+                    max_rr = max(max_rr, int(m.group(1)))
+                room_reservations.append(
+                    RoomReservation(
+                        reservation_id=rid,
+                        room_id=row["room_id"].strip(),
+                        borrower_id=row["borrower_id"].strip(),
+                        booking_date=_parse_date(row["booking_date"]),
+                        start_hour=_parse_int(row["start_hour"]),
+                        state=(row.get("state") or "").strip() or "CONFIRMED",
+                        num_attendees=max(1, _parse_int(row.get("num_attendees") or "1")),
+                        confirm_code=(row.get("confirm_code") or "").strip() or "—",
+                    )
+                )
+
     lib = Library(
         books=books,
         borrowers=borrowers,
         copies=copies,
         reservations=reservations,
+        study_rooms=study_rooms,
+        room_reservations=room_reservations,
         simulation_date=date(2026, 3, 20),
         _next_borrower_num=max_borrower + 1,
         _next_copy_num=max_copy_n + 1,
         _next_card_num=max_card + 1,
         _next_res_num=max_res + 1,
+        _next_room_res_num=max_rr + 1,
     )
     return lib

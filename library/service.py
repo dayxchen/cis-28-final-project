@@ -1,9 +1,25 @@
 from __future__ import annotations
 
-from datetime import timedelta
+import secrets
+from datetime import date, timedelta
 from typing import Any, Optional
 
-from .models import Book, Borrower, Copy, CopyStatus, Library, Reservation
+from .models import (
+    Book,
+    Borrower,
+    Copy,
+    CopyStatus,
+    Library,
+    Reservation,
+    RoomReservation,
+    RoomReservationState,
+    StudyRoom,
+)
+
+# Study rooms: 9:00–19:00; bookings are 1 hour; last start hour is 18 (6pm–7pm).
+STUDY_FIRST_START_HOUR = 9
+STUDY_LAST_START_HOUR = 18
+MAX_ACTIVE_STUDY_ROOM_RESERVATIONS = 8
 
 
 def _fine_rate(book: Book) -> float:
@@ -251,6 +267,12 @@ def new_day(lib: Library) -> tuple[bool, str]:
         if c.hold_days_remaining <= 0:
             _expire_hold(lib, c)
 
+    for r in lib.room_reservations:
+        if r.state != RoomReservationState.CONFIRMED:
+            continue
+        if r.booking_date < lib.simulation_date:
+            r.state = RoomReservationState.COMPLETED
+
     return True, f"Simulation date is now {lib.simulation_date.isoformat()}."
 
 
@@ -300,8 +322,290 @@ def delete_borrower(lib: Library, borrower_id: str) -> tuple[bool, str]:
     ):
         return False, "Borrower has a copy on hold."
     lib.reservations = [r for r in lib.reservations if r.borrower_id != borrower_id]
+    lib.room_reservations = [r for r in lib.room_reservations if r.borrower_id != borrower_id]
     del lib.borrowers[borrower_id]
     return True, f"Removed borrower {borrower_id}."
+
+
+# --- Study rooms ---
+
+
+def _slot_blocks_booking(state: str) -> bool:
+    return state in (RoomReservationState.CONFIRMED, RoomReservationState.OUT_OF_SERVICE)
+
+
+def study_slot_hours() -> list[int]:
+    return list(range(STUDY_FIRST_START_HOUR, STUDY_LAST_START_HOUR + 1))
+
+
+def format_study_slot_label(start_hour: int) -> str:
+    def hm(h: int) -> str:
+        if h <= 0:
+            return "12:00 AM"
+        if h < 12:
+            return f"{h}:00 AM"
+        if h == 12:
+            return "12:00 PM"
+        return f"{h - 12}:00 PM"
+
+    return f"{hm(start_hour)} – {hm(start_hour + 1)}"
+
+
+def find_room_reservation_conflict(
+    lib: Library,
+    room_id: str,
+    booking_date: date,
+    start_hour: int,
+    exclude_reservation_id: Optional[str] = None,
+) -> Optional[RoomReservation]:
+    for r in lib.room_reservations:
+        if exclude_reservation_id and r.reservation_id == exclude_reservation_id:
+            continue
+        if r.room_id != room_id or r.booking_date != booking_date or r.start_hour != start_hour:
+            continue
+        if _slot_blocks_booking(r.state):
+            return r
+    return None
+
+
+def _count_confirmed_room_reservations(lib: Library, borrower_id: str) -> int:
+    return sum(
+        1
+        for r in lib.room_reservations
+        if r.borrower_id == borrower_id and r.state == RoomReservationState.CONFIRMED
+    )
+
+
+def study_room_schedule_for_date(lib: Library, booking_date: date) -> dict[str, Any]:
+    slots = study_slot_hours()
+    rows: list[dict[str, Any]] = []
+    for room in sorted(lib.study_rooms.values(), key=lambda x: x.room_id):
+        slot_cells: list[dict[str, Any]] = []
+        for h in slots:
+            if not room.is_active:
+                slot_cells.append({"kind": "inactive"})
+                continue
+            rr = find_room_reservation_conflict(lib, room.room_id, booking_date, h)
+            if rr:
+                slot_cells.append({"kind": "taken", "state": rr.state})
+            else:
+                slot_cells.append({"kind": "free"})
+        rows.append({"room": room, "slots": slot_cells})
+    return {"booking_date": booking_date, "slots": slots, "rows": rows}
+
+
+def borrower_upcoming_room_reservations(lib: Library, borrower_id: str) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+    for r in lib.room_reservations:
+        if r.borrower_id != borrower_id or r.state != RoomReservationState.CONFIRMED:
+            continue
+        if r.booking_date < lib.simulation_date:
+            continue
+        room = lib.study_rooms.get(r.room_id)
+        out.append(
+            {
+                "reservation_id": r.reservation_id,
+                "room_id": r.room_id,
+                "room_name": room.name if room else r.room_id,
+                "room_location": room.location if room else "",
+                "booking_date": r.booking_date.isoformat(),
+                "start_hour": r.start_hour,
+                "slot_label": format_study_slot_label(r.start_hour),
+                "num_attendees": r.num_attendees,
+                "confirm_code": r.confirm_code,
+                "state": r.state,
+            }
+        )
+    out.sort(key=lambda x: (x["booking_date"], x["start_hour"], x["reservation_id"]))
+    return out
+
+
+def borrower_out_of_service_room_notifications(lib: Library, borrower_id: str) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+    for r in lib.room_reservations:
+        if r.borrower_id != borrower_id or r.state != RoomReservationState.OUT_OF_SERVICE:
+            continue
+        room = lib.study_rooms.get(r.room_id)
+        out.append(
+            {
+                "reservation_id": r.reservation_id,
+                "room_id": r.room_id,
+                "room_name": room.name if room else r.room_id,
+                "booking_date": r.booking_date.isoformat(),
+                "slot_label": format_study_slot_label(r.start_hour),
+            }
+        )
+    out.sort(key=lambda x: (x["booking_date"], x["slot_label"], x["reservation_id"]))
+    return out
+
+
+def reserve_study_room(
+    lib: Library,
+    card_barcode: str,
+    room_id: str,
+    booking_date: date,
+    start_hour: int,
+    num_attendees: int,
+) -> tuple[bool, str]:
+    room_id = room_id.strip()
+    b = find_borrower_by_card(lib, card_barcode)
+    if not b:
+        return False, "Borrower not found for that card."
+    if lib.simulation_date > b.card_expiration:
+        return False, "Library card has expired."
+
+    room = lib.study_rooms.get(room_id)
+    if not room:
+        return False, "Study room not found."
+    if not room.is_active:
+        return False, "That room is not available for booking (out of service)."
+
+    if booking_date < lib.simulation_date:
+        return False, "Booking date cannot be in the past."
+    if start_hour < STUDY_FIRST_START_HOUR or start_hour > STUDY_LAST_START_HOUR:
+        return False, f"Start time must be between {STUDY_FIRST_START_HOUR}:00 and {STUDY_LAST_START_HOUR}:00 (1-hour slots until 7:00 PM close)."
+
+    if num_attendees < 1:
+        return False, "Number of attendees must be at least 1."
+    if num_attendees > room.capacity:
+        return False, f"This room allows at most {room.capacity} attendee(s)."
+
+    if _count_confirmed_room_reservations(lib, b.borrower_id) >= MAX_ACTIVE_STUDY_ROOM_RESERVATIONS:
+        return False, f"You already have {MAX_ACTIVE_STUDY_ROOM_RESERVATIONS} active study room reservations."
+
+    if find_room_reservation_conflict(lib, room_id, booking_date, start_hour):
+        return False, "That time slot is no longer available."
+
+    rid = f"RR-{lib._next_room_res_num:05d}"
+    lib._next_room_res_num += 1
+    code = secrets.token_hex(3).upper()
+    lib.room_reservations.append(
+        RoomReservation(
+            reservation_id=rid,
+            room_id=room_id,
+            borrower_id=b.borrower_id,
+            booking_date=booking_date,
+            start_hour=start_hour,
+            state=RoomReservationState.CONFIRMED,
+            num_attendees=num_attendees,
+            confirm_code=code,
+        )
+    )
+    return True, f"Confirmed {room.name} on {booking_date.isoformat()} ({format_study_slot_label(start_hour)}). Confirmation code: {code}."
+
+
+def cancel_study_room_reservation(lib: Library, card_barcode: str, reservation_id: str) -> tuple[bool, str]:
+    b = find_borrower_by_card(lib, card_barcode)
+    if not b:
+        return False, "Borrower not found for that card."
+    reservation_id = reservation_id.strip()
+    r = next((x for x in lib.room_reservations if x.reservation_id == reservation_id), None)
+    if not r or r.borrower_id != b.borrower_id:
+        return False, "Reservation not found on your account."
+    if r.state != RoomReservationState.CONFIRMED:
+        return False, "Only active reservations can be cancelled."
+    r.state = RoomReservationState.CANCELLED
+    return True, f"Reservation {reservation_id} cancelled."
+
+
+def modify_study_room_reservation(
+    lib: Library,
+    card_barcode: str,
+    reservation_id: str,
+    new_room_id: str,
+    new_booking_date: date,
+    new_start_hour: int,
+    new_num_attendees: int,
+) -> tuple[bool, str]:
+    b = find_borrower_by_card(lib, card_barcode)
+    if not b:
+        return False, "Borrower not found for that card."
+    reservation_id = reservation_id.strip()
+    r = next((x for x in lib.room_reservations if x.reservation_id == reservation_id), None)
+    if not r or r.borrower_id != b.borrower_id:
+        return False, "Reservation not found on your account."
+    if r.state != RoomReservationState.CONFIRMED:
+        return False, "Only active reservations can be modified."
+
+    new_room_id = new_room_id.strip()
+    room = lib.study_rooms.get(new_room_id)
+    if not room:
+        return False, "Study room not found."
+    if not room.is_active:
+        return False, "That room is not available for booking (out of service)."
+
+    if new_booking_date < lib.simulation_date:
+        return False, "Booking date cannot be in the past."
+    if new_start_hour < STUDY_FIRST_START_HOUR or new_start_hour > STUDY_LAST_START_HOUR:
+        return False, f"Start time must be between {STUDY_FIRST_START_HOUR}:00 and {STUDY_LAST_START_HOUR}:00."
+
+    if new_num_attendees < 1:
+        return False, "Number of attendees must be at least 1."
+    if new_num_attendees > room.capacity:
+        return False, f"This room allows at most {room.capacity} attendee(s)."
+
+    if find_room_reservation_conflict(lib, new_room_id, new_booking_date, new_start_hour, exclude_reservation_id=r.reservation_id):
+        return False, "That time slot is not available."
+
+    r.room_id = new_room_id
+    r.booking_date = new_booking_date
+    r.start_hour = new_start_hour
+    r.num_attendees = new_num_attendees
+    return True, f"Reservation {reservation_id} updated to {room.name} on {new_booking_date.isoformat()} ({format_study_slot_label(new_start_hour)})."
+
+
+def set_study_room_active(lib: Library, room_id: str, is_active: bool) -> tuple[bool, str]:
+    room_id = room_id.strip()
+    room = lib.study_rooms.get(room_id)
+    if not room:
+        return False, "Study room not found."
+    room.is_active = is_active
+    cancelled = 0
+    if not is_active:
+        for r in lib.room_reservations:
+            if r.room_id == room_id and r.state == RoomReservationState.CONFIRMED:
+                # Track maintenance-driven cancellations so borrower portals can notify affected patrons.
+                r.state = RoomReservationState.OUT_OF_SERVICE
+                cancelled += 1
+        msg = f"{room.name} is now out of service for bookings."
+        if cancelled:
+            msg += f" Cancelled {cancelled} active reservation(s)."
+        return True, msg
+    return True, f"{room.name} is now available for bookings."
+
+
+def mark_room_reservation_out_of_service(lib: Library, reservation_id: str) -> tuple[bool, str]:
+    reservation_id = reservation_id.strip()
+    r = next((x for x in lib.room_reservations if x.reservation_id == reservation_id), None)
+    if not r:
+        return False, "Room reservation not found."
+    if r.state != RoomReservationState.CONFIRMED:
+        return False, "Only confirmed reservations can be marked out of service."
+    r.state = RoomReservationState.OUT_OF_SERVICE
+    return True, f"Reservation {reservation_id} marked out of service."
+
+
+def staff_room_reservations_list(lib: Library) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for r in sorted(lib.room_reservations, key=lambda x: (x.booking_date, x.start_hour, x.reservation_id)):
+        room = lib.study_rooms.get(r.room_id)
+        br = lib.borrowers.get(r.borrower_id)
+        rows.append(
+            {
+                "reservation_id": r.reservation_id,
+                "state": r.state,
+                "room_id": r.room_id,
+                "room_name": room.name if room else r.room_id,
+                "booking_date": r.booking_date.isoformat(),
+                "start_hour": r.start_hour,
+                "slot_label": format_study_slot_label(r.start_hour),
+                "borrower_id": r.borrower_id,
+                "borrower_name": br.name if br else r.borrower_id,
+                "num_attendees": r.num_attendees,
+                "confirm_code": r.confirm_code,
+            }
+        )
+    return rows
 
 
 # --- Reports & queries ---
@@ -437,6 +741,8 @@ def query_borrower(lib: Library, card_barcode: str) -> Optional[dict[str, Any]]:
                 "reservation_id": r.reservation_id,
             }
         )
+    room_rows = borrower_upcoming_room_reservations(lib, b.borrower_id)
+    room_oos = borrower_out_of_service_room_notifications(lib, b.borrower_id)
     return {
         "borrower_id": b.borrower_id,
         "name": b.name,
@@ -448,6 +754,8 @@ def query_borrower(lib: Library, card_barcode: str) -> Optional[dict[str, Any]]:
         "card_expired": lib.simulation_date > b.card_expiration,
         "checked_out": checked,
         "reservations": reserved,
+        "room_reservations": room_rows,
+        "room_oos_notifications": room_oos,
     }
 
 
