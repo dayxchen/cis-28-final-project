@@ -1,69 +1,68 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="29.6.4">
   <diagram name="Page-1" id="wQXU80QRlkRCzhZ_nD46">
-    <mxGraphModel dx="930" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="976" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-2" edge="1" parent="1" source="JgANvCrpU3H2c4fsLEkm-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="JgANvCrpU3H2c4fsLEkm-3" value="Borrower submits reservation">
+        <mxCell id="JgANvCrpU3H2c4fsLEkm-2" edge="1" parent="1" source="JgANvCrpU3H2c4fsLEkm-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="JgANvCrpU3H2c4fsLEkm-3" value="Borrower reservation is confirmed">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="420" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0d6A3jr96IqqOUmGXgzC-5" edge="1" parent="1" source="JgANvCrpU3H2c4fsLEkm-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="0d6A3jr96IqqOUmGXgzC-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="60" />
+              <mxPoint x="520" y="270" />
+            </Array>
+            <mxPoint x="560" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0d6A3jr96IqqOUmGXgzC-6" connectable="0" parent="0d6A3jr96IqqOUmGXgzC-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Staff marks Room&lt;br&gt;Out of Service" vertex="1">
+          <mxGeometry relative="1" x="-0.179" as="geometry">
+            <mxPoint y="85" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="JgANvCrpU3H2c4fsLEkm-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
           <mxGeometry height="40" width="40" x="400" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-4" edge="1" parent="1" source="JgANvCrpU3H2c4fsLEkm-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="JgANvCrpU3H2c4fsLEkm-5" value="Room &amp;amp; slot available">
+        <mxCell id="JgANvCrpU3H2c4fsLEkm-17" edge="1" parent="1" source="JgANvCrpU3H2c4fsLEkm-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="0d6A3jr96IqqOUmGXgzC-3" value="Borrower cancels/&lt;div&gt;time slot ends&lt;/div&gt;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="420" y="230" as="targetPoint" />
+            <mxPoint x="220" y="210" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-17" edge="1" parent="1" source="JgANvCrpU3H2c4fsLEkm-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="JgANvCrpU3H2c4fsLEkm-14" value="Slot unavailble/Borrower cancels">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="0d6A3jr96IqqOUmGXgzC-8" edge="1" parent="1" source="JgANvCrpU3H2c4fsLEkm-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="240" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Pending" vertex="1">
+        <mxCell id="JgANvCrpU3H2c4fsLEkm-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Unavailable" vertex="1">
           <mxGeometry height="60" width="120" x="360" y="120" as="geometry" />
         </mxCell>
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-10" edge="1" parent="1" source="JgANvCrpU3H2c4fsLEkm-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="JgANvCrpU3H2c4fsLEkm-9" value="Time slot ends">
-          <mxGeometry relative="1" x="0.7073" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-18" edge="1" parent="1" source="JgANvCrpU3H2c4fsLEkm-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="JgANvCrpU3H2c4fsLEkm-14" value="Borrower cancels">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-20" edge="1" parent="1" source="JgANvCrpU3H2c4fsLEkm-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="JgANvCrpU3H2c4fsLEkm-19" value="Staff marks out of service">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Confirmed" vertex="1">
-          <mxGeometry height="60" width="120" x="360" y="250" as="geometry" />
-        </mxCell>
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-8" edge="1" parent="1" source="JgANvCrpU3H2c4fsLEkm-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;curved=1;" target="JgANvCrpU3H2c4fsLEkm-5" value="Borrower modifies time slot">
-          <mxGeometry relative="1" x="0.3723" y="30" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-13" edge="1" parent="1" source="JgANvCrpU3H2c4fsLEkm-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="615" y="420.0000000000001" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Completed" vertex="1">
-          <mxGeometry height="60" width="120" x="555" y="320" as="geometry" />
-        </mxCell>
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-12" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
-          <mxGeometry height="40" width="40" x="595" y="420" as="geometry" />
-        </mxCell>
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-16" edge="1" parent="1" source="JgANvCrpU3H2c4fsLEkm-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="JgANvCrpU3H2c4fsLEkm-15">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Cancelled" vertex="1">
-          <mxGeometry height="60" width="120" x="160" y="320" as="geometry" />
-        </mxCell>
         <mxCell id="JgANvCrpU3H2c4fsLEkm-15" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
-          <mxGeometry height="40" width="40" x="200" y="420" as="geometry" />
+          <mxGeometry height="40" width="40" x="200" y="330" as="geometry" />
         </mxCell>
-        <mxCell id="JgANvCrpU3H2c4fsLEkm-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Out of service" vertex="1">
-          <mxGeometry height="60" width="120" x="360" y="450" as="geometry" />
+        <mxCell id="0d6A3jr96IqqOUmGXgzC-4" edge="1" parent="1" source="0d6A3jr96IqqOUmGXgzC-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="JgANvCrpU3H2c4fsLEkm-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0d6A3jr96IqqOUmGXgzC-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Available" vertex="1">
+          <mxGeometry height="60" width="120" x="160" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="0d6A3jr96IqqOUmGXgzC-11" edge="1" parent="1" source="0d6A3jr96IqqOUmGXgzC-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="0d6A3jr96IqqOUmGXgzC-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0d6A3jr96IqqOUmGXgzC-12" connectable="0" parent="0d6A3jr96IqqOUmGXgzC-11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Staff marks Room&lt;br&gt;in service" vertex="1">
+          <mxGeometry relative="1" x="0.0319" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0d6A3jr96IqqOUmGXgzC-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Out of Service" vertex="1">
+          <mxGeometry height="60" width="120" x="360" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="0d6A3jr96IqqOUmGXgzC-10" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Staff marks Room&lt;br&gt;Out of Service" vertex="1">
+          <mxGeometry x="420" y="210" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
